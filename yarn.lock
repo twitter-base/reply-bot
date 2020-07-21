@@ -575,6 +575,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prettier@npm:^2.0.5":
+  version: 2.0.5
+  resolution: "prettier@npm:2.0.5"
+  bin:
+    prettier: bin-prettier.js
+  checksum: d249d89361870a29b20e8b268cb09e908490b8c9e21f70393d12a213701f29ba7e95b7f9ce0ad63929c16ce475176742481911737ae3da4a498873e4a3b90990
+  languageName: node
+  linkType: hard
+
 "propagate@npm:^2.0.0":
   version: 2.0.1
   resolution: "propagate@npm:2.0.1"
@@ -717,6 +726,7 @@ __metadata:
   dependencies:
     dotenv: ^8.2.0
     fs: ^0.0.1-security
+    prettier: ^2.0.5
     sleep-atomic: ^0.9.7
     twitter-autohook: ^1.7.1
     twitter-tweet: ^0.1.1

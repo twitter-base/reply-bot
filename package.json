@@ -134,6 +134,7 @@
   "homepage": "https://github.com/SpongeScribe/SpongeScribeBot/tree/main#readme",
   "dependencies": {
     "fs": "^0.0.1-security",
+    "prettier": "^2.0.5",
     "sleep-atomic": "^0.9.7",
     "twitter-autohook": "^1.7.1",
     "twitter-tweet": "^0.1.1"
