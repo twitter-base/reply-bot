@@ -5,9 +5,9 @@
   "description": "StrangeText Transcription",
   "main": "index.js",
   "exports": {
-    ".": "./index.js",
-    "./index": "./index.js",
-    "./index.js": "./index.js",
+    ".": "./lib/index.js",
+    "./index": "./lib/index.js",
+    "./index.js": "./lib/index.js",
     "./package.json": "./package.json",
     "./sleep": "./sleep.js",
     "./sleep.js": "./sleep.js",
@@ -35,7 +35,7 @@
   "files": [
     "package.json",
     "package-lock.json",
-    "index.js",
+    "lib/index.js",
     "sleep.js",
     "twitter.js",
     "twitter-autohook.js",
@@ -44,14 +44,14 @@
   ],
   "module": "main.js",
   "scripts": {
-    "dev": "node --unhandled-rejections=strict --trace-warnings -r dotenv/config index.js ; ",
+    "dev": "node --unhandled-rejections=strict --trace-warnings -r dotenv/config ./lib/index.js ; ",
     "sleep": "node --unhandled-rejections=strict --trace-warnings server.js ; ",
     "build": "babel ./ --out-dir lib/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log,./lib/lib,./lib/node_modules --copy-files ; rm -f lib/package.json; echo \"{ \\\"type\\\": \\\"commonjs\\\" }\" > lib/package.json ; ",
     "lint": "echo \"Error: no linter specified\" && exit 1 ; ",
     "lint-test": "npm run-script lint ; npm run-script test ; ",
-    "start": "node --unhandled-rejections=strict --trace-warnings -r dotenv/config index.js ; ",
+    "start": "node --unhandled-rejections=strict --trace-warnings -r dotenv/config ./lib/index.js ; ",
     "build-start-lib": "npm run-script build ; npm run-script start-lib ; ",
-    "start-lib": "node --unhandled-rejections=strict --trace-warnings lib/index.js ; ",
+    "start-lib": "node --unhandled-rejections=strict --trace-warnings ./lib/index.js ; ",
     "start-slow": "npm run-script start-lib ; npm run-script sleep ; ",
     "test": "echo \"Error: no test specified\" && exit 1 ; ",
     "twitter": "node --unhandled-rejections=strict --trace-warnings -r dotenv/config twitter.js ; ",
@@ -133,22 +133,12 @@
   },
   "homepage": "https://github.com/SpongeScribe/SpongeScribeBot/tree/main#readme",
   "dependencies": {
-    "hashish": "0.0.4",
-    "mongodb": "^3.5.9",
-    "move-file": "^2.0.0",
-    "seq": "^0.3.5",
-    "sleep-atomic": "^0.9.3",
-    "text2png": "^2.3.0",
+    "fs": "^0.0.1-security",
+    "sleep-atomic": "^0.9.7",
     "twitter-autohook": "^1.7.1",
-    "twitter-lite": "^0.14.0",
-    "unescape-js": "^1.1.4",
-    "uuid": "^8.2.0",
-    "dotenv": "^8.2.0"
+    "twitter-tweet": "^0.1.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.10.4",
-    "@babel/core": "^7.10.4",
-    "@babel/node": "^7.10.4",
-    "@babel/preset-env": "^7.10.4"
+    "dotenv": "^8.2.0"
   }
 }
