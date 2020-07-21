@@ -114,13 +114,19 @@
   },
   "homepage": "https://github.com/twitter-base/reply-bot/tree/main#readme",
   "dependencies": {
+    "anglicize": "^1.0.0",
+    "bleetify": "^1.0.2",
     "fs": "^0.0.1-security",
+    "replace-special-characters": "^1.0.2",
+    "translitro": "^0.2.3",
     "twitter-autohook": "^1.7.1",
-    "twitter-tweet": "^0.1.1"
+    "twitter-tweet": "^0.1.2",
+    "unzalgo": "^2.1.2",
+    "weird-to-normal-chars": "^1.1.2"
   },
   "devDependencies": {
-    "sleep-atomic": "^0.9.7",
+    "dotenv": "^8.2.0",
     "prettier": "^2.0.5",
-    "dotenv": "^8.2.0"
+    "sleep-atomic": "^0.9.7"
   }
 }
