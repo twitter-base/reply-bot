@@ -1,7 +1,7 @@
 {
   "name": "twitter-reply-bot",
   "type": "module",
-  "version": "0.6.6",
+  "version": "0.6.9",
   "description": "base for twitter reply bot using autohook",
   "main": "./lib/index.js",
   "module": "lib/index.js",
