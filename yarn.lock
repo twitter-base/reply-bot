@@ -1168,6 +1168,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"emoji-regex@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "emoji-regex@npm:9.0.0"
+  checksum: d089be1902c6f82e9e45f8496dd2bef89ead8489fca75486ad3aa085c84b2c6cbfbf79baba7eb30d6cacc70bea948a6eeca9a9ba32d594cd4434a60df475352b
+  languageName: node
+  linkType: hard
+
 "encoding@npm:^0.1.11":
   version: 0.1.13
   resolution: "encoding@npm:0.1.13"
@@ -4713,6 +4720,7 @@ resolve@^1.10.0:
     anglicize: ^1.0.0
     bleetify: ^1.0.2
     dotenv: ^8.2.0
+    emoji-regex: ^9.0.0
     fs: ^0.0.1-security
     prettier: ^2.0.5
     replace-special-characters: ^1.0.2

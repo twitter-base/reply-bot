@@ -116,6 +116,7 @@
   "dependencies": {
     "anglicize": "^1.0.0",
     "bleetify": "^1.0.2",
+    "emoji-regex": "^9.0.0",
     "fs": "^0.0.1-security",
     "replace-special-characters": "^1.0.2",
     "translitro": "^0.2.3",
