@@ -4724,6 +4724,7 @@ resolve@^1.10.0:
     fs: ^0.0.1-security
     prettier: ^2.0.5
     replace-special-characters: ^1.0.2
+    runes: ^0.4.3
     sleep-atomic: ^0.9.7
     translitro: ^0.2.3
     twitter: ^1.7.1
