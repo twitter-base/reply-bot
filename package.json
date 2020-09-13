@@ -118,6 +118,7 @@
     "bleetify": "^1.0.2",
     "emoji-regex": "^9.0.0",
     "fs": "^0.0.1-security",
+    "get-port": "^5.1.1",
     "replace-special-characters": "^1.0.2",
     "runes": "^0.4.3",
     "translitro": "^0.2.3",
