@@ -1,0 +1,35 @@
+name: Base-Branch Check Protected [PR]
+on:
+  pull_request:
+    branches: 
+      - 'main'
+      - 'next'
+      - 'dev'
+jobs:     
+  check-pr-base-branch-protected:
+    runs-on: ubuntu-latest
+    steps:
+      - if: github.ref == 'refs/heads/main'
+        name: Base-branch check - main
+        uses: a-b-r-o-w-n/check-base-branch-action@v1
+        with:
+          protectedBranches: "next"
+          defaultBranch: "dev"
+          update-branch: false
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+      - if: github.ref == 'refs/heads/next'
+        name: Base-branch check - next
+        uses: a-b-r-o-w-n/check-base-branch-action@v1
+        with:
+          protectedBranches: "dev"
+          defaultBranch: "main"
+          update-branch: false
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+      - if: github.ref == 'refs/heads/dev'
+        name: Base-branch check - dev
+        uses: a-b-r-o-w-n/check-base-branch-action@v1
+        with:
+          protectedBranches: "main"
+          defaultBranch: "next"
+          update-branch: true
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"

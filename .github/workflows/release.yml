@@ -1,4 +1,4 @@
-name: Release Package
+name: Release Package [node,gh,npm]
 on:
   push:
     branches:
@@ -21,7 +21,7 @@ jobs:
     strategy:
       matrix:
         node: [ '14' ]
-    name: Release - Node.js - ${{ matrix.node }}
+    name: Release - yarn(${{ matrix.node }})
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2

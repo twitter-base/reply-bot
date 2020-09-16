@@ -247,30 +247,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dezren39/chunk-text@npm:^1.1.101":
-  version: 1.1.101
-  resolution: "@dezren39/chunk-text@npm:1.1.101"
-  dependencies:
-    runes: ^0.4.3
-  bin:
-    chunk: bin/server.js
-    chunk-text: bin/server.js
-  checksum: 825971ae4fc51703921df94ff9c8c4b06f71209b4c7559481281f159778d0bf026d7b973dd3cace2a2673436b29ba9576de7aabf83769e0c1e116a7df8536694
-  languageName: node
-  linkType: hard
-
-"@dezren39/chunk-text@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "@dezren39/chunk-text@npm:2.0.1"
-  dependencies:
-    runes: ^0.4.3
-  bin:
-    chunk: bin/server.js
-    chunk-text: bin/server.js
-  checksum: bb6108ed2f9154b9eb90383dd3e62678f91bd2803d6efc328b0df2ff5bd2006efee9a9bafb7988a8f332bf2dd239a8457ac46f69195a675fa2e02b556923ff9b
-  languageName: node
-  linkType: hard
-
 "@iarna/cli@npm:^1.2.0":
   version: 1.2.0
   resolution: "@iarna/cli@npm:1.2.0"
@@ -448,6 +424,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@saithodev/semantic-release-backmerge@npm:^1.1.3":
+  version: 1.1.3
+  resolution: "@saithodev/semantic-release-backmerge@npm:1.1.3"
+  dependencies:
+    "@semantic-release/error": ^2.2.0
+    aggregate-error: ^3.0.1
+    debug: ^4.1.1
+    execa: ^4.0.3
+    lodash: ^4.17.19
+  checksum: d56d4ca2b078894ea416e96df1b5f4fb25dd2bb0c5fd39210b6b41a759ba67f451c451e0aede97a5b761554975fbe6a2cc153530131b81309009e36fca1fb737
+  languageName: node
+  linkType: hard
+
 "@semantic-release/commit-analyzer@npm:^8.0.0":
   version: 8.0.1
   resolution: "@semantic-release/commit-analyzer@npm:8.0.1"
@@ -579,9 +568,9 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*, @types/node@npm:>= 8, @types/node@npm:^8.10.50":
-  version: 8.10.63
-  resolution: "@types/node@npm:8.10.63"
-  checksum: ca5a93b9034349a5e4242c70d9c7e6b322ce8c63950fdeedcb91dcedaeab86f631049dd5d802c8a294147a3d91971a10211654050b8dc469ab697f464c688907
+  version: 8.10.64
+  resolution: "@types/node@npm:8.10.64"
+  checksum: 9d6c02ca61a995d3a89f8806c7b04916e2c050a3f7c5142a993520141a4aec3e359ecc44324a2e3fda214443822f088a1992f6892fc2ac12a3e66f910a5a9bb9
   languageName: node
   linkType: hard
 
@@ -689,7 +678,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aggregate-error@npm:^3.0.0":
+"aggregate-error@npm:^3.0.0, aggregate-error@npm:^3.0.1":
   version: 3.1.0
   resolution: "aggregate-error@npm:3.1.0"
   dependencies:
@@ -1393,6 +1382,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chunk-text@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "chunk-text@npm:2.0.1"
+  dependencies:
+    runes: ^0.4.3
+  bin:
+    chunk: bin/server.js
+    chunk-text: bin/server.js
+  checksum: e8789956379396d36cf8e9f6b26bceb4e1a6565e2bd5f3c75e0636e9f290b868085e0ae4503815d280811f245f14364b545c83107fcfab99678bd3316b4e618c
+  languageName: node
+  linkType: hard
+
 "ci-info@npm:^1.5.0":
   version: 1.6.0
   resolution: "ci-info@npm:1.6.0"
@@ -2058,7 +2059,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:4, debug@npm:^4.0.0, debug@npm:^4.1.0":
+"debug@npm:4, debug@npm:^4.0.0, debug@npm:^4.1.0, debug@npm:^4.1.1":
   version: 4.2.0
   resolution: "debug@npm:4.2.0"
   dependencies:
@@ -2572,7 +2573,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"execa@npm:^4.0.0":
+"execa@npm:^4.0.0, execa@npm:^4.0.3":
   version: 4.0.3
   resolution: "execa@npm:4.0.3"
   dependencies:
@@ -3002,10 +3003,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fs@npm:^0.0.1-security":
-  version: 0.0.1-security
-  resolution: "fs@npm:0.0.1-security"
-  checksum: d23d3c0dd42fd11508e5f8d265375c676816adf398f61bfc3e2635e6e8ca323fd1f530d5dd5f87e4fca54296efb5ddf8a382b99f1ac243ac0a8b4b1cae8f5fac
+"fs@npm:0.0.2":
+  version: 0.0.2
+  resolution: "fs@npm:0.0.2"
+  checksum: ce207ac55650a8b6339421b2ca95d4e5029c163cace8db89572a415ff63126b2daa5f8de3daf0bb599be3b4b18a9f08e38e89eee8ac8c2ce905ec06a292e7a71
   languageName: node
   linkType: hard
 
@@ -6696,15 +6697,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"readable-stream@npm:1 || 2, readable-stream@npm:^1.1.8, readable-stream@npm:~1.1.10":
-  version: 1.1.14
-  resolution: "readable-stream@npm:1.1.14"
+"readable-stream@npm:1 || 2, readable-stream@npm:^2.0.0, readable-stream@npm:^2.0.2, readable-stream@npm:^2.0.6, readable-stream@npm:^2.1.5, readable-stream@npm:^2.2.2, readable-stream@npm:^2.3.6, readable-stream@npm:~2.3.6":
+  version: 2.3.7
+  resolution: "readable-stream@npm:2.3.7"
   dependencies:
     core-util-is: ~1.0.0
-    inherits: ~2.0.1
-    isarray: 0.0.1
-    string_decoder: ~0.10.x
-  checksum: e4c30b6b8495c11fc83e1b5fcb03b378127d93c953413973a25500991d0bf2b2e158e329d0f56d294e24a61c7751b874570158f24f97ebacb8a5f2fdcc05a0ec
+    inherits: ~2.0.3
+    isarray: ~1.0.0
+    process-nextick-args: ~2.0.0
+    safe-buffer: ~5.1.1
+    string_decoder: ~1.1.1
+    util-deprecate: ~1.0.1
+  checksum: 6e3826560627a751feb3a8aec073ef94c6e47b8c8e06eb5d136323b5f09db9d2077c23a42a8d54ed0123695af54b36c1e4271a8ec55112b15f4b89020d8dec72
   languageName: node
   linkType: hard
 
@@ -6719,18 +6723,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"readable-stream@npm:^2.0.0, readable-stream@npm:^2.0.2, readable-stream@npm:^2.0.6, readable-stream@npm:^2.1.5, readable-stream@npm:^2.2.2, readable-stream@npm:^2.3.6, readable-stream@npm:~2.3.6":
-  version: 2.3.7
-  resolution: "readable-stream@npm:2.3.7"
+"readable-stream@npm:^1.1.8, readable-stream@npm:~1.1.10":
+  version: 1.1.14
+  resolution: "readable-stream@npm:1.1.14"
   dependencies:
     core-util-is: ~1.0.0
-    inherits: ~2.0.3
-    isarray: ~1.0.0
-    process-nextick-args: ~2.0.0
-    safe-buffer: ~5.1.1
-    string_decoder: ~1.1.1
-    util-deprecate: ~1.0.1
-  checksum: 6e3826560627a751feb3a8aec073ef94c6e47b8c8e06eb5d136323b5f09db9d2077c23a42a8d54ed0123695af54b36c1e4271a8ec55112b15f4b89020d8dec72
+    inherits: ~2.0.1
+    isarray: 0.0.1
+    string_decoder: ~0.10.x
+  checksum: e4c30b6b8495c11fc83e1b5fcb03b378127d93c953413973a25500991d0bf2b2e158e329d0f56d294e24a61c7751b874570158f24f97ebacb8a5f2fdcc05a0ec
   languageName: node
   linkType: hard
 
@@ -7331,12 +7332,13 @@ resolve@^1.10.0:
   languageName: node
   linkType: hard
 
-"sleep-atomic@npm:^0.9.7":
-  version: 0.9.7
-  resolution: "sleep-atomic@npm:0.9.7"
+"sleep-atomic@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "sleep-atomic@npm:1.0.0"
   bin:
-    sleep: server.js
-  checksum: 10bb532d51ed97dd02eb8ee2e4d00e61dc86036b63b9df10b267fd72561f2c69a720b2ff884b25ce7d945b0d3714856d5c240d4ed6fe23faf07a509b5887a13e
+    sleep: bin/server.js
+    sleep-atomic: bin/server.js
+  checksum: 000682037ec5d4d9d2b18bfc67db950111159d7b7772fa1786428bedecf1439e4610f4f916300411478d4b190f81043a69be6856524656b3e8f2bf0a244493c8
   languageName: node
   linkType: hard
 
@@ -7506,9 +7508,9 @@ resolve@^1.10.0:
   linkType: hard
 
 "spdx-license-ids@npm:^3.0.0":
-  version: 3.0.5
-  resolution: "spdx-license-ids@npm:3.0.5"
-  checksum: 4ff7c0615a3c69a195b206a425e6a633ccb24e680ac21f5464b249b57ebb5c3f356f84a8e713599758be69ee4a849319d7fce7041b69e29acd9d31daed3fb8eb
+  version: 3.0.6
+  resolution: "spdx-license-ids@npm:3.0.6"
+  checksum: 90f9f7db7f049e5b2b315d45858368ba0451036f5e3536acad5c9771d7506543be0e1ee641441d813c7cddf9d06337a14ceae21e18e2622bbf3dbcc9d396c193
   languageName: node
   linkType: hard
 
@@ -7984,6 +7986,13 @@ resolve@^1.10.0:
   languageName: node
   linkType: hard
 
+"timeout@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "timeout@npm:0.2.1"
+  checksum: 0e61494a70e675aac4a10b34d97187a9c544d8921a384f95d8d2967b2c78cf20a4ffab539c42d760f4fb8a7719ea747833d9ada3566182452306df3119976057
+  languageName: node
+  linkType: hard
+
 "tiny-relative-date@npm:^1.3.0":
   version: 1.3.0
   resolution: "tiny-relative-date@npm:1.3.0"
@@ -8183,14 +8192,14 @@ resolve@^1.10.0:
     "@commitlint/cli": ^11.0.0
     "@commitlint/config-conventional": ^11.0.0
     "@commitlint/prompt-cli": ^11.0.0
-    "@dezren39/chunk-text": ^2.0.1
+    "@saithodev/semantic-release-backmerge": ^1.1.3
     anglicize: ^1.0.0
     bleetify: ^1.0.2
     commitizen: ^4.2.1
     cz-conventional-changelog: ^3.3.0
     dotenv: ^8.2.0
     emoji-regex: ^9.0.0
-    fs: ^0.0.1-security
+    fs: 0.0.2
     get-port: ^5.1.1
     husky: ^4.3.0
     json: ^10.0.0
@@ -8198,13 +8207,14 @@ resolve@^1.10.0:
     replace-special-characters: ^1.0.2
     runes: ^0.4.3
     semantic-release: ^17.1.1
-    sleep-atomic: ^0.9.7
+    sleep-atomic: ^1.0.0
+    timeout: ^0.2.1
     translitro: ^0.2.3
     twitter: ^1.7.1
     twitter-autohook: ^1.7.2
     twitter-lite: ^0.14.0
     twitter-text: ^3.1.0
-    twitter-tweet: ^0.1.4
+    twitter-tweet: ^1.2.0
     unzalgo: ^2.1.2
     weird-to-normal-chars: ^1.1.2
   bin:
@@ -8225,11 +8235,11 @@ resolve@^1.10.0:
   languageName: node
   linkType: hard
 
-"twitter-tweet@npm:^0.1.4":
-  version: 0.1.6
-  resolution: "twitter-tweet@npm:0.1.6"
+"twitter-tweet@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "twitter-tweet@npm:1.2.0"
   dependencies:
-    "@dezren39/chunk-text": ^1.1.101
+    chunk-text: ^2.0.1
     twitter-lite: ^0.14.0
     twitter-text: ^3.1.0
   peerDependencies:
@@ -8237,7 +8247,7 @@ resolve@^1.10.0:
   bin:
     tweet: bin/server.js
     twitter-tweet: bin/server.js
-  checksum: ef8474e6d17053595379d1f7b9ba11a7427a6616a560bc2f4d870db43d06781076fa9dcba350e4d0b505237dfa5b3a8971b6af4221ddc06f7b68a23e00c6568d
+  checksum: f0546adea8199df54cc8c3ce7a9ad9e50a22b237ceb4110aec3028e96bf064ba69e0e7eba1ac08f204067d6e40e7d682e44918643ecc969b67c37175c1109bf6
   languageName: node
   linkType: hard
 
