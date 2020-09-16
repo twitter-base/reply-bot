@@ -1,12 +1,12 @@
-name: Check
+name: Install, Build, Test
 on: [push, pull_request, pull_request_target, create, fork, release]
 jobs:
-  check:
+  install-build-test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node: [ '14', '12', '10' ]
-    name: Check - Node.js - ${{ matrix.node }}
+    name: Install, Build, Test - Node.js - ${{ matrix.node }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
