@@ -6,7 +6,7 @@ on:
       - 'next'
       - 'dev'
 jobs:     
-  check-pr-base-branch:
+  check-pr-base-branch-protected:
     runs-on: ubuntu-latest
     steps:
       - if: github.ref == 'refs/heads/main'
