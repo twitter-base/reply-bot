@@ -13,10 +13,14 @@
     "sleep": "sleep",
     "start": "node --unhandled-rejections=strict --trace-warnings ./bin/server.js",
     "test": "node --unhandled-rejections=strict --trace-warnings ./test/test.js",
+    "build": "",
+    "cz": "cz",
+    "commit": "commit",
+    "semantic-release": "semantic-release",
     "changelog": "conventional-changelog --preset angular --infile CHANGELOG.md --same-file",
     "changelog:unreleased": "conventional-changelog --preset angular --output-unreleased",
     "lint": "eslint lib",
-    "version": "echo \"$npm_package_version\"",
+    "version": "json version -a < package.json",
     "reply-bot": "npm run start",
     "twitter-reply-bot": "npm run start"
   },
@@ -141,10 +145,12 @@
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
+    "@commitlint/prompt-cli": "^11.0.0",
     "commitizen": "^4.2.1",
     "cz-conventional-changelog": "^3.3.0",
     "dotenv": "^8.2.0",
     "husky": "^4.3.0",
+    "json": "^10.0.0",
     "prettier": "^2.1.2",
     "sleep-atomic": "^0.9.7"
   },
@@ -152,5 +158,61 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "release": {
+    "branches": [
+      "main",
+      {"name": "next", "prerelease": true},
+      {"name": "dev", "prerelease": true}
+    ]
+  },
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/npm",
+    [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "CHANGELOG.md"
+      }
+    ],
+    [
+      "@semantic-release/git",
+      {
+        "assets": [
+          "CHANGELOG.md",
+          "CODE_OF_CONDUCT.md",
+          "CONTRIBUTORS.md",
+          "LICENSE",
+          "NOTICE.LICENSE.md",
+          "README.md",
+          "bin/server.js",
+          "lib/index.js",
+          "package.json"
+        ]
+      }
+    ],
+    [
+      "@semantic-release/github",
+      {
+        "assets": [
+          "CHANGELOG.md",
+          "CODE_OF_CONDUCT.md",
+          "CONTRIBUTORS.md",
+          "LICENSE",
+          "NOTICE.LICENSE.md",
+          "README.md",
+          "bin/server.js",
+          "lib/index.js",
+          "package.json"
+        ],
+        "assignees": "dezren39",
+        "addReleases": "bottom"
+      }
+    ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "private": false
 }
