@@ -1,8 +1,8 @@
-name: Base-Branch Check Unprotected [PR]
+name: Branch Check Unprotected [PR]
 on: 
   pull_request:
-    branches:
-      - '*' 
+   branches:
+      - '*'
       - '!main'
       - '!next'
       - '!dev'
