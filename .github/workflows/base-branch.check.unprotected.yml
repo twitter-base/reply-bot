@@ -6,7 +6,7 @@ on:
       - 'next'
       - 'dev'
 jobs:     
-  check-pr-base-branch:
+  check-pr-base-branch-unprotected:
     runs-on: ubuntu-latest
     steps:
       - name: Base-branch check - feature - unprotected
