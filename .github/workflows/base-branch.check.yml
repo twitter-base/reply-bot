@@ -1,5 +1,10 @@
 name: Base-Branch Check [PR]
-on: [pull_request]
+on:
+  pull_request:
+    branches: 
+      - 'main'
+      - 'next'
+      - 'dev'
 jobs:     
   check-pr-base-branch:
     runs-on: ubuntu-latest
@@ -26,13 +31,5 @@ jobs:
         with:
           protectedBranches: "main"
           defaultBranch: "next"
-          update-branch: true
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
-      - if: ! github.ref == 'refs/heads/dev' && ! github.ref == 'refs/heads/next' && ! github.ref == 'refs/heads/main'
-        name: Base-branch check - feature - unprotected
-        uses: a-b-r-o-w-n/check-base-branch-action@v1
-        with:
-          protectedBranches: "main, next"
-          defaultBranch: "dev"
           update-branch: true
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
