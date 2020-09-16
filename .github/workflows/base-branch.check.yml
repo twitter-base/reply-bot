@@ -28,8 +28,8 @@ jobs:
           defaultBranch: "next"
           update-branch: true
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
-      - if: ! contains('refs/heads/dev refs/heads/next refs/heads/main', github.ref)
-        name: Base-branch check - feature(unprotected)
+      - if: ! github.ref == 'refs/heads/dev' && ! github.ref == 'refs/heads/next' && ! github.ref == 'refs/heads/main'
+        name: Base-branch check - feature - unprotected
         uses: a-b-r-o-w-n/check-base-branch-action@v1
         with:
           protectedBranches: "main, next"
