@@ -28,7 +28,7 @@ jobs:
           defaultBranch: "next"
           update-branch: true
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
-      - if: ! ('refs/heads/dev' || 'refs/heads/next' || 'refs/heads/main')
+      - if: ! contains('refs/heads/dev refs/heads/next refs/heads/main', github.ref)
         name: Base-branch check - feature(unprotected)
         uses: a-b-r-o-w-n/check-base-branch-action@v1
         with:
