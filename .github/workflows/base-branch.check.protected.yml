@@ -4,7 +4,11 @@ jobs:
   check-pr-base-branch-protected:
     runs-on: ubuntu-latest
     steps:
-      - if: github.ref = '!refs/heads/main' && github.reg = '!refs/heads/main'       
+      - if: ! (
+          "${{ github.ref }}" == 'refs/heads/dev' 
+          || "${{ github.ref }}" == '!refs/heads/next'
+          || "${{ github.ref }}" == '!refs/heads/main'
+          )
         name: Base-branch check - feature - unprotected
         uses: a-b-r-o-w-n/check-base-branch-action@v1
         with:
@@ -12,13 +16,13 @@ jobs:
           defaultBranch: "dev"
           update-branch: true
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
-      - if: github.ref == 'refs/heads/main'
-        name: Base-branch check - main
+      - if: github.ref == 'refs/heads/dev'
+        name: Base-branch check - dev
         uses: a-b-r-o-w-n/check-base-branch-action@v1
         with:
-          protectedBranches: "next"
-          defaultBranch: "dev"
-          update-branch: false
+          protectedBranches: "main"
+          defaultBranch: "next"
+          update-branch: true
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
       - if: github.ref == 'refs/heads/next'
         name: Base-branch check - next
@@ -28,11 +32,11 @@ jobs:
           defaultBranch: "main"
           update-branch: false
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
-      - if: github.ref == 'refs/heads/dev'
-        name: Base-branch check - dev
+      - if: github.ref == 'refs/heads/main'
+        name: Base-branch check - main
         uses: a-b-r-o-w-n/check-base-branch-action@v1
         with:
-          protectedBranches: "main"
-          defaultBranch: "next"
-          update-branch: true
+          protectedBranches: "next"
+          defaultBranch: "dev"
+          update-branch: false
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
