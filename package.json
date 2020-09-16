@@ -121,6 +121,7 @@
   },
   "homepage": "https://github.com/twitter-base/reply-bot/tree/main#readme",
   "dependencies": {
+    "@dezren39/chunk-text": "^2.0.1",
     "anglicize": "^1.0.0",
     "bleetify": "^1.0.2",
     "emoji-regex": "^9.0.0",
@@ -140,9 +141,16 @@
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
+    "commitizen": "^4.2.1",
+    "cz-conventional-changelog": "^3.3.0",
     "dotenv": "^8.2.0",
     "husky": "^4.3.0",
     "prettier": "^2.0.5",
     "sleep-atomic": "^0.9.7"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
