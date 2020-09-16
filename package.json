@@ -13,8 +13,14 @@
     "sleep": "sleep",
     "start": "node --unhandled-rejections=strict --trace-warnings ./bin/server.js",
     "test": "node --unhandled-rejections=strict --trace-warnings ./test/test.js",
+    "build": "",
+    "cz": "cz",
+    "commit": "commit",
+    "semantic-release": "semantic-release",
+    "changelog": "conventional-changelog --preset angular --infile CHANGELOG.md --same-file",
+    "changelog:unreleased": "conventional-changelog --preset angular --output-unreleased",
     "lint": "eslint lib",
-    "version": "echo \"$npm_package_version\"",
+    "version": "json version -a < package.json",
     "reply-bot": "npm run start",
     "twitter-reply-bot": "npm run start"
   },
@@ -108,21 +114,28 @@
     "transliteration"
   ],
   "author": "dezren39",
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "license": "MPL-2.0",
   "bugs": {
     "url": "https://github.com/twitter-base/reply-bot/issues"
   },
   "homepage": "https://github.com/twitter-base/reply-bot/tree/main#readme",
   "dependencies": {
+    "@dezren39/chunk-text": "^2.0.1",
     "anglicize": "^1.0.0",
     "bleetify": "^1.0.2",
     "emoji-regex": "^9.0.0",
     "fs": "^0.0.1-security",
+    "get-port": "^5.1.1",
     "replace-special-characters": "^1.0.2",
     "runes": "^0.4.3",
     "translitro": "^0.2.3",
     "twitter": "^1.7.1",
-    "twitter-autohook": "^1.7.1",
+    "twitter-autohook": "^1.7.2",
     "twitter-lite": "^0.14.0",
     "twitter-text": "^3.1.0",
     "twitter-tweet": "^0.1.4",
@@ -130,8 +143,76 @@
     "weird-to-normal-chars": "^1.1.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@commitlint/prompt-cli": "^11.0.0",
+    "commitizen": "^4.2.1",
+    "cz-conventional-changelog": "^3.3.0",
     "dotenv": "^8.2.0",
-    "prettier": "^2.0.5",
+    "husky": "^4.3.0",
+    "json": "^10.0.0",
+    "prettier": "^2.1.2",
     "sleep-atomic": "^0.9.7"
-  }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "release": {
+    "branches": [
+      "main",
+      {"name": "next", "prerelease": true},
+      {"name": "dev", "prerelease": true}
+    ]
+  },
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/npm",
+    [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "CHANGELOG.md"
+      }
+    ],
+    [
+      "@semantic-release/git",
+      {
+        "assets": [
+          "CHANGELOG.md",
+          "CODE_OF_CONDUCT.md",
+          "CONTRIBUTORS.md",
+          "LICENSE",
+          "NOTICE.LICENSE.md",
+          "README.md",
+          "bin/server.js",
+          "lib/index.js",
+          "package.json"
+        ]
+      }
+    ],
+    [
+      "@semantic-release/github",
+      {
+        "assets": [
+          "CHANGELOG.md",
+          "CODE_OF_CONDUCT.md",
+          "CONTRIBUTORS.md",
+          "LICENSE",
+          "NOTICE.LICENSE.md",
+          "README.md",
+          "bin/server.js",
+          "lib/index.js",
+          "package.json"
+        ],
+        "assignees": "dezren39",
+        "addReleases": "bottom"
+      }
+    ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "private": false
 }
