@@ -1,4 +1,4 @@
-name: Install, Build, Test
+name: Install, Build, Test [yarn, npm]
 on: [push, pull_request, pull_request_target, create, fork, release]
 jobs:
   install-build-test:
@@ -6,7 +6,8 @@ jobs:
     strategy:
       matrix:
         node: [ '14', '12', '10' ]
-    name: Install, Build, Test - Node.js - ${{ matrix.node }}
+        pm: [ 'yarn', 'npm' ]
+    name: Install, Build, Test - ${{ matrix.pm }}(${{ matrix.node }})
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -16,8 +17,8 @@ jobs:
           node-version: ${{ matrix.node }}
           check-latest: true
       - name: Install dependencies
-        run: yarn install #--immutable --immutable-cache --check-cache
+        run: ${{ matrix.pm }} install #--immutable --immutable-cache --check-cache
       - name: Build target
-        run: yarn build
+        run: ${{ matrix.pm }} build
       - name: Test code
-        run: yarn test
+        run: ${{ matrix.pm }} test
