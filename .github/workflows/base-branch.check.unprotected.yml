@@ -1,4 +1,4 @@
-name: Base-Branch Check [PR]
+name: Base-Branch Check Unprotected [PR]
 on: 
   pull_request:
     branches-ignore: 
