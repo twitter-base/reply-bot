@@ -216,6 +216,20 @@
         "assignees": "dezren39",
         "addReleases": "bottom"
       }
+    ],
+    [
+      "@saithodev/semantic-release-backmerge",
+      {
+        "branchName": "dev",
+        "plugins": [
+          [
+            "@semantic-release/exec",
+            {
+              "successCmd": "echo 'Version in master is ${nextRelease.version}' > test.txt && git add test.txt"
+            }
+          ]
+        ]
+      }
     ]
   ],
   "publishConfig": {
