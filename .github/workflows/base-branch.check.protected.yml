@@ -39,6 +39,8 @@ jobs:
           uses: a-b-r-o-w-n/check-base-branch-action@v1
           with:
             protected-branches: "main, next"
+            protectedBranches: "main, next"
             default-branch: dev
+            defaultBranch: dev
             update-branch: true
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
