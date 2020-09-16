@@ -1,6 +1,8 @@
 name: Base-Branch Check Unprotected [PR]
 on: 
   pull_request:
+    branches: 
+      - '*'
     branches-ignore: 
       - 'main'
       - 'next'
