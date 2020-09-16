@@ -1,0 +1,18 @@
+name: Base-Branch Check [PR]
+on: 
+  pull_request:
+    branch-ignore: 
+      - 'main'
+      - 'next'
+      - 'dev'
+jobs:     
+  check-pr-base-branch:
+    runs-on: ubuntu-latest
+    steps:
+      name: Base-branch check - feature - unprotected
+      uses: a-b-r-o-w-n/check-base-branch-action@v1
+      with:
+        protectedBranches: "main, next"
+        defaultBranch: "dev"
+        update-branch: true
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
