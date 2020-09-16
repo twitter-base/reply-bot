@@ -112,7 +112,7 @@
   "author": "dezren39",
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "license": "MPL-2.0",
