@@ -131,7 +131,7 @@
     "runes": "^0.4.3",
     "translitro": "^0.2.3",
     "twitter": "^1.7.1",
-    "twitter-autohook": "^1.7.1",
+    "twitter-autohook": "^1.7.2",
     "twitter-lite": "^0.14.0",
     "twitter-text": "^3.1.0",
     "twitter-tweet": "^0.1.4",
@@ -145,7 +145,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "dotenv": "^8.2.0",
     "husky": "^4.3.0",
-    "prettier": "^2.0.5",
+    "prettier": "^2.1.2",
     "sleep-atomic": "^0.9.7"
   },
   "config": {
