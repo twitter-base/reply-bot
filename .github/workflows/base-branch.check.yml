@@ -1,11 +1,11 @@
-name: Check PR Base-Branch
+name: Base-Branch Check [PR]
 on: [pull_request]
 jobs:     
   check-pr-base-branch:
     runs-on: ubuntu-latest
     steps:
       - if: github.ref == 'refs/heads/main'
-        name: Check PR base branch - main
+        name: Base-branch check - main
         uses: a-b-r-o-w-n/check-base-branch-action@v1
         with:
           protectedBranches: "next"
@@ -13,7 +13,7 @@ jobs:
           update-branch: false
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
       - if: github.ref == 'refs/heads/next'
-        name: Check PR base branch - next
+        name: Base-branch check - next
         uses: a-b-r-o-w-n/check-base-branch-action@v1
         with:
           protectedBranches: "dev"
@@ -21,7 +21,7 @@ jobs:
           update-branch: false
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
       - if: github.ref == 'refs/heads/dev'
-        name: Check PR base branch - dev
+        name: Base-branch check - dev
         uses: a-b-r-o-w-n/check-base-branch-action@v1
         with:
           protectedBranches: "main"
@@ -29,7 +29,7 @@ jobs:
           update-branch: true
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
       - if: ! ('refs/heads/dev' || 'refs/heads/next' || 'refs/heads/main')
-        name: Check PR base branch - feature(unprotected)
+        name: Base-branch check - feature(unprotected)
         uses: a-b-r-o-w-n/check-base-branch-action@v1
         with:
           protectedBranches: "main, next"
