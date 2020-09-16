@@ -1,0 +1,21 @@
+name: Check PR Base-Branch
+on: [pull_request]
+jobs:
+  check-pr-base-branch:
+    steps:
+      - name: Check PR base branch
+        uses: a-b-r-o-w-n/check-base-branch-action@v1
+        with:
+          update-branch: true
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          if: github.ref == 'refs/heads/dev'
+          protectedBranches: "main"
+          defaultBranch: "next"
+          if:
+            !contains('
+              refs/heads/dev
+              refs/heads/next
+              refs/heads/main
+            ', github.ref)
+          protectedBranches: "main, next"
+          defaultBranch: "dev"
