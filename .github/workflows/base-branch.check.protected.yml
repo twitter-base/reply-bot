@@ -1,37 +1,44 @@
-name: Base-Branch Check Protected [PR]
+#     release_dry-run:
+#     runs-on: ubuntu-latest
+#     name: Release (DRY-RUN) - yarn(${{ matrix.node }})
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v2
+name: Base-Branch Check [PR]
 on: [pull_request, pull_request_target, pull_request_review_comment, pull_request_review]
-jobs:     
-  check-pr-base-branch-protected:
+jobs:
+  base-branch-check:
     runs-on: ubuntu-latest
     steps:
-      - if: github.ref == 'refs/heads/dev'
-        name: Base-branch check - dev
-        uses: a-b-r-o-w-n/check-base-branch-action@v1
-        with:
-          protected-branches: "main"
-          default-branch: "next"
-          update-branch: true
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
-      - if: github.ref == 'refs/heads/next'
-        name: Base-branch check - next
-        uses: a-b-r-o-w-n/check-base-branch-action@v1
-        with:
-          protected-branches: "dev"
-          default-branch: "main"
-          update-branch: false
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
-      - if: github.ref == 'refs/heads/main'
-        name: Base-branch check - main
-        uses: a-b-r-o-w-n/check-base-branch-action@v1
-        with:
-          protected-branches: "next"
-          default-branch: "dev"
-          update-branch: false
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
-      - name: Base-branch check - feature - unprotected
-        uses: a-b-r-o-w-n/check-base-branch-action@v1
-        with:
-          protected-branches: "main, next"
-          default-branch: "dev"
-          update-branch: true
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+        - if: github.ref == 'refs/heads/dev'
+          name: Check base-branch from dev - master => next - FORCE
+          uses: a-b-r-o-w-n/check-base-branch-action@v1
+          with:
+            protected-branches: "main"
+            default-branch: "next"
+            update-branch: true
+            repo-token: "${{ secrets.GITHUB_TOKEN }}"
+        - if: github.ref == 'refs/heads/next'
+          name: Check base-branch from next - dev => main
+          uses: a-b-r-o-w-n/check-base-branch-action@v1
+          with:
+            protected-branches: "dev"
+            default-branch: "main"
+            update-branch: false
+            repo-token: "${{ secrets.GITHUB_TOKEN }}"
+        - if: github.ref == 'refs/heads/main'
+          name: Check base-branch from main - next => dev
+          uses: a-b-r-o-w-n/check-base-branch-action@v1
+          with:
+            protected-branches: "next"
+            default-branch: "dev"
+            update-branch: false
+            repo-token: "${{ secrets.GITHUB_TOKEN }}"
+        - if: github.ref != 'refs/heads/dev' && github.ref != 'refs/heads/next' && github.ref != 'refs/heads/main'          
+          name: Check base-branch from feature - main,next => dev - FORCE
+          uses: a-b-r-o-w-n/check-base-branch-action@v1
+          with:
+            protected-branches: "main, next"
+            default-branch: "dev"
+            update-branch: true
+            repo-token: "${{ secrets.GITHUB_TOKEN }}"
