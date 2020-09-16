@@ -152,6 +152,7 @@
     "husky": "^4.3.0",
     "json": "^10.0.0",
     "prettier": "^2.1.2",
+    "semantic-release": "^17.1.1",
     "sleep-atomic": "^0.9.7"
   },
   "config": {
@@ -162,8 +163,14 @@
   "release": {
     "branches": [
       "main",
-      {"name": "next", "prerelease": true},
-      {"name": "dev", "prerelease": true}
+      {
+        "name": "next",
+        "prerelease": true
+      },
+      {
+        "name": "dev",
+        "prerelease": true
+      }
     ]
   },
   "plugins": [
@@ -213,6 +220,5 @@
   ],
   "publishConfig": {
     "access": "public"
-  },
-  "private": false
+  }
 }
