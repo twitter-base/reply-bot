@@ -125,20 +125,20 @@
   },
   "homepage": "https://github.com/twitter-base/reply-bot/tree/main#readme",
   "dependencies": {
-    "@dezren39/chunk-text": "^2.0.1",
     "anglicize": "^1.0.0",
     "bleetify": "^1.0.2",
     "emoji-regex": "^9.0.0",
-    "fs": "^0.0.1-security",
+    "fs": "0.0.2",
     "get-port": "^5.1.1",
     "replace-special-characters": "^1.0.2",
     "runes": "^0.4.3",
+    "timeout": "^0.2.1",
     "translitro": "^0.2.3",
     "twitter": "^1.7.1",
     "twitter-autohook": "^1.7.2",
     "twitter-lite": "^0.14.0",
     "twitter-text": "^3.1.0",
-    "twitter-tweet": "^0.1.4",
+    "twitter-tweet": "^1.2.0",
     "unzalgo": "^2.1.2",
     "weird-to-normal-chars": "^1.1.2"
   },
@@ -153,7 +153,7 @@
     "json": "^10.0.0",
     "prettier": "^2.1.2",
     "semantic-release": "^17.1.1",
-    "sleep-atomic": "^0.9.7"
+    "sleep-atomic": "^1.0.0"
   },
   "config": {
     "commitizen": {
