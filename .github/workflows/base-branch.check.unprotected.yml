@@ -1,10 +1,11 @@
 name: Base-Branch Check Unprotected [PR]
 on: 
   pull_request:
-    branches-ignore: 
-      - 'main'
-      - 'next'
-      - 'dev'
+    branches:
+      - '*' 
+      - '!main'
+      - '!next'
+      - '!dev'
 jobs:     
   check-pr-base-branch-unprotected:
     runs-on: ubuntu-latest
