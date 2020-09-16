@@ -14,24 +14,24 @@ jobs:
           name: Check base-branch from dev - master => next - FORCE
           uses: a-b-r-o-w-n/check-base-branch-action@v1
           with:
-            protected-branches: "main"
-            default-branch: "next"
+            protected-branches: main
+            default-branch: next
             update-branch: true
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
         - if: github.ref == 'refs/heads/next'
           name: Check base-branch from next - dev => main
           uses: a-b-r-o-w-n/check-base-branch-action@v1
           with:
-            protected-branches: "dev"
-            default-branch: "main"
+            protected-branches: dev
+            default-branch: main
             update-branch: false
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
         - if: github.ref == 'refs/heads/main'
           name: Check base-branch from main - next => dev
           uses: a-b-r-o-w-n/check-base-branch-action@v1
           with:
-            protected-branches: "next"
-            default-branch: "dev"
+            protected-branches: next
+            default-branch: dev
             update-branch: false
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
         - if: github.ref != 'refs/heads/dev' && github.ref != 'refs/heads/next' && github.ref != 'refs/heads/main'          
@@ -39,6 +39,6 @@ jobs:
           uses: a-b-r-o-w-n/check-base-branch-action@v1
           with:
             protected-branches: "main, next"
-            default-branch: "dev"
+            default-branch: dev
             update-branch: true
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
