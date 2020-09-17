@@ -1,10 +1,10 @@
+name: Base Merger
 on:
   issue_comment:
     types: [created]
-name: Base Merger
 jobs:
-  update:
-    name: Update
+  base-merger_update:
+    name: Base Merger - Update
     if: github.event.issue.pull_request != '' && contains(github.event.comment.body, '/update')
     runs-on: ubuntu-latest
     steps:
