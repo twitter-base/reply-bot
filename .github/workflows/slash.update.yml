@@ -8,7 +8,7 @@ jobs:
     if: github.event.issue.pull_request != '' && contains(github.event.comment.body, '/update')
     runs-on: ubuntu-latest
     steps:
-    - name: Base Merger
+    - name: Base merger - update
       uses: junmo-kim/base-merger@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
