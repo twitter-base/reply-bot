@@ -1,11 +1,7 @@
 name: Check Base-Branch [PR]
 on:
   pull_request:
-    branches: 
-      - '*'
   pull_request_target:
-    types:
-      - '*'
   pull_request_review_comment:    
   pull_request_review:
   workflow_run:
