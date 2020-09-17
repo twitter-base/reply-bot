@@ -1,5 +1,5 @@
 name: Check Base-Branch [PR]
-on: [ pull_request, pull_request_target] # pull_request_review_comment, pull_request_review ]
+on: [ pull_request, pull_request_target ] # pull_request_review_comment, pull_request_review ]
 jobs:
   check-base-branch:
     runs-on: ubuntu-latest
