@@ -1,4 +1,4 @@
-name: Base Merger
+name: Base Merger [PR]
 on:
   issue_comment:
     types: [created]
