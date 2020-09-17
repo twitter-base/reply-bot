@@ -1,4 +1,4 @@
-name: Install, Build, Test [node][test][build][npm][yarn][10][12][14]
+name: Install, Build, Test [node]
 on: [push, pull_request, pull_request_target, create, fork, release]
 jobs:
   install-build-test_node:
