@@ -4,7 +4,7 @@ jobs:
   check-base-branch:
     runs-on: ubuntu-latest
     steps:
-        - if: github.ref == 'refs/heads/dev'
+        - if:  == 'refs/heads/dev' || github.head_ref == 'refs/heads/dev'
           name: Check base-branch(dev) - master=>next (FORCE)
           uses: dezren39/check-base-branch-action@v2
           with:
@@ -12,7 +12,7 @@ jobs:
             default-branch: "next"
             update-branch: true
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        - if: github.ref == 'refs/heads/next'
+        - if: github.ref == 'refs/heads/next' || github.head_ref == 'refs/heads/next'
           name: Check base-branch(next) - dev=>main
           uses: dezren39/check-base-branch-action@v2
           with:
@@ -20,7 +20,7 @@ jobs:
             default-branch: "main"
             update-branch: false
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        - if: github.ref == 'refs/heads/main'
+        - if: github.ref == 'refs/heads/main' || github.head_ref == 'refs/heads/main'
           name: Check base-branch(main) - next=>dev
           uses: dezren39/check-base-branch-action@v2
           with:
@@ -28,7 +28,7 @@ jobs:
             default-branch: "dev"
             update-branch: false
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        - if: github.ref != 'refs/heads/dev' && github.ref != 'refs/heads/next' && github.ref != 'refs/heads/main'          
+        - if: github.ref != 'refs/heads/dev' && github.ref != 'refs/heads/next' && github.ref != 'refs/heads/main' && github.head_ref != 'refs/heads/dev'  && github.head_ref != 'refs/heads/next' && github.head_ref != 'refs/heads/main'
           name: Check base-branch(feature) - main,next=>dev (FORCE)
           uses: dezren39/check-base-branch-action@v2
           with:
