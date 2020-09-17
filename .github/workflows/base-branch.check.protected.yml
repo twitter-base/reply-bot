@@ -12,7 +12,7 @@ jobs:
     steps:
         - if: github.ref == 'refs/heads/dev'
           name: Check base-branch from dev - master => next - FORCE
-          uses: dezren39/check-base-branch-action
+          uses: dezren39/check-base-branch-action@v2
           with:
             protected-branches: "main"
             default-branch: "next"
@@ -20,7 +20,7 @@ jobs:
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
         - if: github.ref == 'refs/heads/next'
           name: Check base-branch from next - dev => main
-          uses: dezren39/check-base-branch-action
+          uses: dezren39/check-base-branch-action@v2
           with:
             protected-branches: "dev"
             default-branch: "main"
@@ -28,7 +28,7 @@ jobs:
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
         - if: github.ref == 'refs/heads/main'
           name: Check base-branch from main - next => dev
-          uses: dezren39/check-base-branch-action
+          uses: dezren39/check-base-branch-action@v2
           with:
             protected-branches: "next"
             default-branch: "dev"
@@ -36,7 +36,7 @@ jobs:
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
         - if: github.ref != 'refs/heads/dev' && github.ref != 'refs/heads/next' && github.ref != 'refs/heads/main'          
           name: Check base-branch from feature - main,next => dev - FORCE
-          uses: dezren39/check-base-branch-action
+          uses: dezren39/check-base-branch-action@v2
           with:
             protected-branches: "main,next"
             default-branch: dev
