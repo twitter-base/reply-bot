@@ -1,4 +1,4 @@
-name: Release Package [node,gh,npm]
+name: Release Package [node][@github][@npm]
 on:
   push:
     branches:
