@@ -16,12 +16,12 @@ on:
       - next
       - dev
 jobs:
-  release:
+  release_package:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node: [ '14' ]
-    name: Release - yarn(${{ matrix.node }})
+    name: Release package - yarn(${{ matrix.node }})
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
