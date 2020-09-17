@@ -1,0 +1,43 @@
+name: Release Artifacts [@nodejs][@github][@npm]
+on:
+  push:
+    branches:
+    - main
+    - next
+    - dev
+  pull_request:
+    branches: 
+      - main
+      - next
+      - dev
+  pull_request_target:
+    branches: 
+      - main
+      - next
+      - dev
+jobs:
+  release_package:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ '14' ]
+    name: Release package - yarn(${{ matrix.node }})
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: ${{ matrix.node }}
+          check-latest: true
+      - name: Install dependencies
+        run: yarn install #--immutable --immutable-cache --check-cache
+      - name: Build target
+        run: yarn build
+      - name: Test code
+        run: yarn test
+      - name: Release package
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release
