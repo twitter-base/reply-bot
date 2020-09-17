@@ -4,7 +4,7 @@ jobs:
   check-base-branch:
     runs-on: ubuntu-latest
     steps:
-        - if:  == 'refs/heads/dev' || github.head_ref == 'refs/heads/dev'
+        - if: github.ref == 'refs/heads/dev' || github.head_ref == 'refs/heads/dev'
           name: Check base-branch(dev) - master=>next (FORCE)
           uses: dezren39/check-base-branch-action@v2
           with:
