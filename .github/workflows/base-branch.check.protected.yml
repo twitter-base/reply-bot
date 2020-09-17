@@ -12,31 +12,31 @@ jobs:
     steps:
         - if: github.ref == 'refs/heads/dev'
           name: Check base-branch from dev - master => next - FORCE
-          uses: a-b-r-o-w-n/check-base-branch-action@v1
+          uses: dezren39/check-base-branch-action
           with:
-            protected-branches: main
-            default-branch: next
+            protected-branches: "main"
+            default-branch: "next"
             update-branch: true
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
         - if: github.ref == 'refs/heads/next'
           name: Check base-branch from next - dev => main
-          uses: a-b-r-o-w-n/check-base-branch-action@v1
+          uses: dezren39/check-base-branch-action
           with:
-            protected-branches: dev
-            default-branch: main
+            protected-branches: "dev"
+            default-branch: "main"
             update-branch: false
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
         - if: github.ref == 'refs/heads/main'
           name: Check base-branch from main - next => dev
-          uses: a-b-r-o-w-n/check-base-branch-action@v1
+          uses: dezren39/check-base-branch-action
           with:
-            protected-branches: next
-            default-branch: dev
+            protected-branches: "next"
+            default-branch: "dev"
             update-branch: false
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
         - if: github.ref != 'refs/heads/dev' && github.ref != 'refs/heads/next' && github.ref != 'refs/heads/main'          
           name: Check base-branch from feature - main,next => dev - FORCE
-          uses: a-b-r-o-w-n/check-base-branch-action@v1
+          uses: dezren39/check-base-branch-action
           with:
             protected-branches: "main,next"
             default-branch: dev
