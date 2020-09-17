@@ -131,12 +131,13 @@
     "get-port": "^5.1.1",
     "replace-special-characters": "^1.0.2",
     "runes": "^0.4.3",
+    "timeout": "^0.2.1",
     "translitro": "^0.2.3",
     "twitter": "^1.7.1",
-    "twitter-autohook": "^1.7.1",
+    "twitter-autohook": "^1.7.2",
     "twitter-lite": "^0.14.0",
     "twitter-text": "^3.1.0",
-    "twitter-tweet": "^0.1.4",
+    "twitter-tweet": "^1.2.0",
     "unzalgo": "^2.1.2",
     "weird-to-normal-chars": "^1.1.2"
   },
@@ -145,7 +146,7 @@
     "@commitlint/config-conventional": "^11.0.0",
     "dotenv": "^8.2.0",
     "husky": "^4.3.0",
-    "prettier": "^2.0.5",
-    "sleep-atomic": "^0.9.7"
+    "prettier": "^2.1.2",
+    "sleep-atomic": "^1.0.0"
   }
 }

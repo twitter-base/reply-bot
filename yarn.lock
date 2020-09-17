@@ -221,18 +221,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dezren39/chunk-text@npm:^1.1.3":
-  version: 1.1.3
-  resolution: "@dezren39/chunk-text@npm:1.1.3"
-  dependencies:
-    runes: ^0.4.3
-  bin:
-    chunk: bin/server.js
-    chunk-text: bin/server.js
-  checksum: a506c27df58eab3de9339e2acd2aa6ef15d007dc74cfe92ccb7ab705dd95072b7f35a8904ab285dba3148ba7268d8220b4f9ed8428c1fa447b8cc493122a9984
-  languageName: node
-  linkType: hard
-
 "@iarna/cli@npm:^1.2.0":
   version: 1.2.0
   resolution: "@iarna/cli@npm:1.2.0"
@@ -865,6 +853,18 @@ __metadata:
   version: 2.0.0
   resolution: "chownr@npm:2.0.0"
   checksum: b06ba0bf4218bc2214cdb94a7d0200db5c6425f9425795c064dcf5a3801aac8ae87f764727890cd1f48c026559159e7e0e15ed3d1940ce453dec54898d013379
+  languageName: node
+  linkType: hard
+
+"chunk-text@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "chunk-text@npm:2.0.1"
+  dependencies:
+    runes: ^0.4.3
+  bin:
+    chunk: bin/server.js
+    chunk-text: bin/server.js
+  checksum: e8789956379396d36cf8e9f6b26bceb4e1a6565e2bd5f3c75e0636e9f290b868085e0ae4503815d280811f245f14364b545c83107fcfab99678bd3316b4e618c
   languageName: node
   linkType: hard
 
@@ -4276,12 +4276,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.0.5":
-  version: 2.0.5
-  resolution: "prettier@npm:2.0.5"
+"prettier@npm:^2.1.2":
+  version: 2.1.2
+  resolution: "prettier@npm:2.1.2"
   bin:
     prettier: bin-prettier.js
-  checksum: d249d89361870a29b20e8b268cb09e908490b8c9e21f70393d12a213701f29ba7e95b7f9ce0ad63929c16ce475176742481911737ae3da4a498873e4a3b90990
+  checksum: bedc24c568efbcfe45f255558900777e2fabb36bf28ed4c22d2456eb22dfb012d12e566a46472ea5b857a4e9f263e888f7e316527d00bb58188f1820b0b0031a
   languageName: node
   linkType: hard
 
@@ -4957,12 +4957,13 @@ resolve@^1.10.0:
   languageName: node
   linkType: hard
 
-"sleep-atomic@npm:^0.9.7":
-  version: 0.9.7
-  resolution: "sleep-atomic@npm:0.9.7"
+"sleep-atomic@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "sleep-atomic@npm:1.0.0"
   bin:
-    sleep: server.js
-  checksum: 10bb532d51ed97dd02eb8ee2e4d00e61dc86036b63b9df10b267fd72561f2c69a720b2ff884b25ce7d945b0d3714856d5c240d4ed6fe23faf07a509b5887a13e
+    sleep: bin/server.js
+    sleep-atomic: bin/server.js
+  checksum: 000682037ec5d4d9d2b18bfc67db950111159d7b7772fa1786428bedecf1439e4610f4f916300411478d4b190f81043a69be6856524656b3e8f2bf0a244493c8
   languageName: node
   linkType: hard
 
@@ -5422,6 +5423,13 @@ resolve@^1.10.0:
   languageName: node
   linkType: hard
 
+"timeout@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "timeout@npm:0.2.1"
+  checksum: 0e61494a70e675aac4a10b34d97187a9c544d8921a384f95d8d2967b2c78cf20a4ffab539c42d760f4fb8a7719ea747833d9ada3566182452306df3119976057
+  languageName: node
+  linkType: hard
+
 "tiny-relative-date@npm:^1.3.0":
   version: 1.3.0
   resolution: "tiny-relative-date@npm:1.3.0"
@@ -5533,9 +5541,9 @@ resolve@^1.10.0:
   languageName: node
   linkType: hard
 
-"twitter-autohook@npm:^1.7.1":
-  version: 1.7.1
-  resolution: "twitter-autohook@npm:1.7.1"
+"twitter-autohook@npm:^1.7.2":
+  version: 1.7.2
+  resolution: "twitter-autohook@npm:1.7.2"
   dependencies:
     commander: ^2.20.0
     dotenv: ^8.0.0
@@ -5544,7 +5552,7 @@ resolve@^1.10.0:
     nock: ^12.0.2
   bin:
     autohook: ./cli.js
-  checksum: c73346b62b0beb265bef1f1495a90f3e945037f15ace63e29d124d5b0e59137b18a19c78cf91cbdaa477467eb88cdd16f8107a866b7a70ea1e130cb351a978ac
+  checksum: b24ad9ce3122557b44c66d396dbcaf96522202eb3903e381dcc5deea3f409e8fdebc15682550907c8d5e3ed3b62a620d2ba403fef5a7d1f9d4bed2282ba22d3f
   languageName: node
   linkType: hard
 
@@ -5571,16 +5579,17 @@ resolve@^1.10.0:
     fs: ^0.0.1-security
     get-port: ^5.1.1
     husky: ^4.3.0
-    prettier: ^2.0.5
+    prettier: ^2.1.2
     replace-special-characters: ^1.0.2
     runes: ^0.4.3
-    sleep-atomic: ^0.9.7
+    sleep-atomic: ^1.0.0
+    timeout: ^0.2.1
     translitro: ^0.2.3
     twitter: ^1.7.1
-    twitter-autohook: ^1.7.1
+    twitter-autohook: ^1.7.2
     twitter-lite: ^0.14.0
     twitter-text: ^3.1.0
-    twitter-tweet: ^0.1.4
+    twitter-tweet: ^1.2.0
     unzalgo: ^2.1.2
     weird-to-normal-chars: ^1.1.2
   bin:
@@ -5601,11 +5610,11 @@ resolve@^1.10.0:
   languageName: node
   linkType: hard
 
-"twitter-tweet@npm:^0.1.4":
-  version: 0.1.4
-  resolution: "twitter-tweet@npm:0.1.4"
+"twitter-tweet@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "twitter-tweet@npm:1.2.0"
   dependencies:
-    "@dezren39/chunk-text": ^1.1.3
+    chunk-text: ^2.0.1
     twitter-lite: ^0.14.0
     twitter-text: ^3.1.0
   peerDependencies:
@@ -5613,7 +5622,7 @@ resolve@^1.10.0:
   bin:
     tweet: bin/server.js
     twitter-tweet: bin/server.js
-  checksum: 849c7cc02a5f2d1d74ea3ccb6ed7bb36d5847882fe04dbd876bf02b9bca0db9400a560425a8ac75147658d968809f3eecc958bf1a62274cc07b32d1cbb23d16a
+  checksum: f0546adea8199df54cc8c3ce7a9ad9e50a22b237ceb4110aec3028e96bf064ba69e0e7eba1ac08f204067d6e40e7d682e44918643ecc969b67c37175c1109bf6
   languageName: node
   linkType: hard
 
