@@ -2,7 +2,7 @@
 set -eu
 
 readonly CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-if [ "$CURRENT_BRANCH" != master ]; then
+if [ "$CURRENT_BRANCH" != main ]; then
   echo "You must be on 'master' branch to publish a release, aborting..."
   exit 1
 fi
@@ -27,7 +27,7 @@ yarn run changelog:unreleased
 # Only update the package.json version
 # We need to update changelog before tagging
 # And publishing.
-yarn version --no-git-tag-version
+yarn version
 
 if ! yarn run changelog; then
   echo "Failed to update changelog, aborting..."
