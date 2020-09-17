@@ -1,7 +1,7 @@
 name: Install, Build, Test [node]
 on: [push, pull_request, pull_request_target, create, fork, release]
 jobs:
-  install-build-test:
+  install-build-test_node:
     runs-on: ubuntu-latest
     strategy:
       matrix:
