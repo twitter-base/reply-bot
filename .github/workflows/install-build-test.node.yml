@@ -1,4 +1,4 @@
-name: Install, Build, Test [node]
+name: Install, Build, Test [@nodejs]
 on: [push, pull_request, pull_request_target, create, fork, release]
 jobs:
   install-build-test_node:
