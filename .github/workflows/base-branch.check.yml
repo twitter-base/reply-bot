@@ -1,17 +1,23 @@
-#     release_dry-run:
-#     runs-on: ubuntu-latest
-#     name: Release (DRY-RUN) - yarn(${{ matrix.node }})
-#     steps:
-#       - name: Checkout repository
-#         uses: actions/checkout@v2
-name: Base-Branch Check [PR]
-on: [pull_request] #, pull_request_target, pull_request_review_comment, pull_request_review]
+name: Check Base-Branch [PR]
+on:
+  pull_request:
+    branches: 
+      - '*'
+  pull_request_target:
+    types:
+      - '*'
+  pull_request_review_comment:    
+  pull_request_review:
+  workflow_run:
+  workflow_dispatch:
+  issue_comment:
+  watch:
 jobs:
-  base-branch-check:
+  check-base-branch:
     runs-on: ubuntu-latest
     steps:
         - if: github.ref == 'refs/heads/dev'
-          name: Check base-branch from dev - master => next - FORCE
+          name: Check base-branch(dev) - master=>next (FORCE)
           uses: dezren39/check-base-branch-action@v2
           with:
             protected-branches: "main"
@@ -19,7 +25,7 @@ jobs:
             update-branch: true
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
         - if: github.ref == 'refs/heads/next'
-          name: Check base-branch from next - dev => main
+          name: Check base-branch(next) - dev=>main
           uses: dezren39/check-base-branch-action@v2
           with:
             protected-branches: "dev"
@@ -27,7 +33,7 @@ jobs:
             update-branch: false
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
         - if: github.ref == 'refs/heads/main'
-          name: Check base-branch from main - next => dev
+          name: Check base-branch(main) - next=>dev
           uses: dezren39/check-base-branch-action@v2
           with:
             protected-branches: "next"
@@ -35,10 +41,10 @@ jobs:
             update-branch: false
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
         - if: github.ref != 'refs/heads/dev' && github.ref != 'refs/heads/next' && github.ref != 'refs/heads/main'          
-          name: Check base-branch from feature - main,next => dev - FORCE
+          name: Check base-branch(feature) - main,next=>dev (FORCE)
           uses: dezren39/check-base-branch-action@v2
           with:
             protected-branches: "main,next"
-            default-branch: dev
+            default-branch: "dev"
             update-branch: true
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
