@@ -38,8 +38,8 @@ jobs:
           name: Check base-branch from feature - main,next => dev - FORCE
           uses: a-b-r-o-w-n/check-base-branch-action@v1
           with:
-            protected-branches: "main, next"
-            protectedBranches: "main, next"
+            protected-branches: "main,next"
+            protectedBranches: "main,next"
             default-branch: dev
             defaultBranch: dev
             update-branch: true
