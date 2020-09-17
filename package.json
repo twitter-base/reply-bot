@@ -226,7 +226,7 @@
           [
             "@semantic-release/exec",
             {
-              "successCmd": "echo 'Version in master is ${nextRelease.version}' > test.txt && git add test.txt"
+              "successCmd": "echo 'Version in main is ${nextRelease.version}' > test.txt && git add test.txt"
             }
           ]
         ]

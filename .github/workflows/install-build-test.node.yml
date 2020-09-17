@@ -1,14 +1,13 @@
-name: "Title Lint [pr][sem][lint]"
-on:
-  pull_request_target:
-    types:
-      - opened
-      - edited
-      - synchronize
-
+name: Install, Build, Test [node][test][build][npm][yarn][10][12][14]
+on: [push, pull_request, pull_request_target, create, fork, release]
 jobs:
-  semantic-pull-request:
+  install-build-test_node:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ '14', '12', '10' ]
+        pm: [ 'yarn', 'npm' ]
+    name: Install, Build, Test - ${{ matrix.pm }}(${{ matrix.node }})
     steps:
       - name: Dump GitHub context
         env:
@@ -34,6 +33,16 @@ jobs:
         env:
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
         run: echo "$MATRIX_CONTEXT"
-      - uses: amannn/action-semantic-pull-request@v1.2.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: ${{ matrix.node }}
+          check-latest: true
+      - name: Install dependencies
+        run: ${{ matrix.pm }} install #--immutable --immutable-cache --check-cache
+      - name: Build target
+        run: ${{ matrix.pm }} build
+      - name: Test code
+        run: ${{ matrix.pm }} test
