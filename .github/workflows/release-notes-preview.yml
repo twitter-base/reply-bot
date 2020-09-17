@@ -1,10 +1,10 @@
-name: Release Notes Preview
+name: Release Notes - Preview [pr][issue]
 
 on:
   [pull_request, issue_comment]
 
 jobs:
-  release-notes-preview:
+  release-notes_preview:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
