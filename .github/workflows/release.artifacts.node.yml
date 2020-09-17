@@ -1,4 +1,4 @@
-name: Release Artifact [@nodejs][@github][@npm]
+name: Release Artifacts [@nodejs][@github][@npm]
 on:
   push:
     branches:
