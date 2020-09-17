@@ -1,5 +1,5 @@
 name: Check Base-Branch [PR]
-on: [ pull_request, pull_request_target ] # pull_request_review_comment, pull_request_review ]
+on: [ pull_request, pull_request_target, pull_request_review_comment, pull_request_review ]
 jobs:
   check-base-branch:
     runs-on: ubuntu-latest
@@ -28,7 +28,7 @@ jobs:
           env:
             MATRIX_CONTEXT: ${{ toJson(matrix) }}
           run: echo "$MATRIX_CONTEXT"
-        - if: github.ref == 'refs/heads/dev' || github.head_ref == 'refs/heads/dev'
+        - if: github.ref == 'refs/heads/dev' || github.head_ref == 'dev' || github.head.ref == 'dev'
           name: Check base-branch(dev) - master=>next (FORCE)
           uses: dezren39/check-base-branch-action@v2
           with:
@@ -36,7 +36,7 @@ jobs:
             default-branch: "next"
             update-branch: true
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        - if: github.ref == 'refs/heads/next' || github.head_ref == 'refs/heads/next'
+        - if: github.ref == 'refs/heads/next' || github.head_ref == 'next' || github.head.ref == 'next'
           name: Check base-branch(next) - dev=>main
           uses: dezren39/check-base-branch-action@v2
           with:
@@ -44,7 +44,7 @@ jobs:
             default-branch: "main"
             update-branch: false
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        - if: github.ref == 'refs/heads/main' || github.head_ref == 'refs/heads/main'
+        - if: github.ref == 'refs/heads/main' || github.head_ref == 'main' || github.head.ref == 'main'
           name: Check base-branch(main) - next=>dev
           uses: dezren39/check-base-branch-action@v2
           with:
@@ -52,7 +52,7 @@ jobs:
             default-branch: "dev"
             update-branch: false
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        - if: github.ref != 'refs/heads/dev' && github.ref != 'refs/heads/next' && github.ref != 'refs/heads/main' && github.head_ref != 'refs/heads/dev'  && github.head_ref != 'refs/heads/next' && github.head_ref != 'refs/heads/main'
+        - if: github.ref != 'refs/heads/dev' && github.ref != 'refs/heads/next' && github.ref != 'refs/heads/main' && github.head_ref != 'dev' && github.head.ref != 'dev'  && github.head_ref != 'next' && github.head.ref != 'next' && github.head_ref != 'main' && github.head.ref != 'main'
           name: Check base-branch(feature) - main,next=>dev (FORCE)
           uses: dezren39/check-base-branch-action@v2
           with:
