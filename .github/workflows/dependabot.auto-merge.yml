@@ -1,13 +1,10 @@
-name: "Title Lint [pr][sem][lint]"
+name: Dependabot Auto-Merge [pr][merge][dep]
+
 on:
-  pull_request_target:
-    types:
-      - opened
-      - edited
-      - synchronize
+  pull_request:
 
 jobs:
-  semantic-pull-request:
+  dependabot_auto-merge:
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
@@ -34,6 +31,8 @@ jobs:
         env:
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
         run: echo "$MATRIX_CONTEXT"
-      - uses: amannn/action-semantic-pull-request@v1.2.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v2
+      - uses: ahmadnassri/action-dependabot-auto-merge@v2
+        with:
+          target: minor
+          github-token: ${{ secrets.GITHUB_TOKEN }}

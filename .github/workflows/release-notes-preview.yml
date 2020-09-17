@@ -1,13 +1,10 @@
-name: "Title Lint [pr][sem][lint]"
+name: Release Notes - Preview [pr][issue]
+
 on:
-  pull_request_target:
-    types:
-      - opened
-      - edited
-      - synchronize
+  [pull_request, issue_comment]
 
 jobs:
-  semantic-pull-request:
+  release-notes_preview:
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
@@ -34,6 +31,12 @@ jobs:
         env:
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
         run: echo "$MATRIX_CONTEXT"
-      - uses: amannn/action-semantic-pull-request@v1.2.0
+      - uses: actions/checkout@v2
+      - run: |
+          git fetch --prune --unshallow --tags
+      - uses: snyk/release-notes-preview@v1.6.1
+        with:
+          releaseBranch: main
         env:
+          GITHUB_PR_USERNAME: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
