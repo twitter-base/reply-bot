@@ -13,8 +13,6 @@
     "sleep": "sleep",
     "start": "node --unhandled-rejections=strict --trace-warnings ./bin/server.js",
     "test": "node --unhandled-rejections=strict --trace-warnings ./test/test.js",
-    "changelog": "conventional-changelog --preset angular --infile CHANGELOG.md --same-file",
-    "changelog:unreleased": "conventional-changelog --preset angular --output-unreleased",
     "lint": "eslint lib",
     "version": "echo \"$npm_package_version\"",
     "reply-bot": "npm run start",
@@ -110,11 +108,6 @@
     "transliteration"
   ],
   "author": "dezren39",
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
   "license": "MPL-2.0",
   "bugs": {
     "url": "https://github.com/twitter-base/reply-bot/issues"
@@ -133,15 +126,12 @@
     "twitter-autohook": "^1.7.1",
     "twitter-lite": "^0.14.0",
     "twitter-text": "^3.1.0",
-    "twitter-tweet": "^0.1.4",
+    "twitter-tweet": "^0.1.5",
     "unzalgo": "^2.1.2",
     "weird-to-normal-chars": "^1.1.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
     "dotenv": "^8.2.0",
-    "husky": "^4.3.0",
     "prettier": "^2.0.5",
     "sleep-atomic": "^0.9.7"
   }
