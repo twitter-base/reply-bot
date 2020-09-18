@@ -1,8 +1,5 @@
 name: Release Notes - Preview [issue][pr][sem]
-
-on:
-  [pull_request, issue_comment]
-
+on: [pull_request, issue_comment]
 jobs:
   release-notes_preview:
     name: Preview semantic version release notes 
@@ -32,10 +29,13 @@ jobs:
         env:
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
         run: echo "$MATRIX_CONTEXT"
-      - uses: actions/checkout@v2
-      - run: |
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Fetch tags
+        run: |
           git fetch --prune --unshallow --tags
-      - uses: snyk/release-notes-preview@v1.6.1
+      - name: Preview release notes
+        uses: snyk/release-notes-preview@v1.6.1
         with:
           releaseBranch: main
         env:
