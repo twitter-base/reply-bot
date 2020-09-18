@@ -1,5 +1,50 @@
 {
   "extends": [
-    "config:base"
-  ]
+    "config:base",
+    ":semanticCommits"
+  ],
+  "packageRules": [
+    {
+      "updateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    }
+  ],
+  "automergeComment": "bors: r+",
+  "assignAutomerge": true,
+  "assigneesFromCodeOwners": true,
+  "automergeType": "pr-comment",
+  "baseBranches": [ "dev" ],
+  "bumpVersion": "patch",
+  "commitBody": "renovate bot automated dependency management",
+  "commitBodyTable": true,
+  "dependencyDashboard": true,
+  "dependencyDashboardAutoclose": true,
+  "enabled": true,
+  "lockFileMaintenance": { "enabled": true },
+  "labels": ["dependencies"],
+  "postUpdateOptions": ["npmDedupe","yarnDedupeHighest"],
+  "prBodyDefinitions": {
+    "Package": "`{{{depName}}}`",
+    "Sourcegraph": "[![code search for \"{{{depName}}}\"](https://sourcegraph.com/search/badge?q=repo:%5Egithub%5C.com/{{{repository}}}%24+case:yes+-file:package%28-lock%29%3F%5C.json+{{{depName}}}&label=matches)](https://sourcegraph.com/search?q=repo:%5Egithub%5C.com/{{{repository}}}%24+case:yes+-file:package%28-lock%29%3F%5C.json+{{{depName}}})"
+  },
+  "prBodyColumns": [
+    "Package",
+    "Update",
+    "New value",
+    "References",
+    "Sourcegraph"
+  ],
+  "prBodyNotes": ["{{#if isMajor}}:warning: MAJOR MAJOR MAJOR :warning:{{/if}}"],
+  "rebaseWhen": "never",
+  "recreateClosed": true,
+  "reviewersFromCodeOwners": true,
+  "rollbackPrs": true,
+  "semanticCommitScope": "deps",
+  "semanticCommits": "enabled",
+  "separateMultipleMajor": true,
+  "unpublishSafe": true,
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "labels": ["security", "vulnerability"]
+  }
 }
