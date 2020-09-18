@@ -1,4 +1,4 @@
-name: Dependabot Auto-Merge [pr][merge][@dependabot]
+name: Dependabot Auto-Merge [@dependabot][merge][pr]
 
 on:
   pull_request:
