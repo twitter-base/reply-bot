@@ -1,5 +1,9 @@
 name: Release Notes - Preview [issue][pr][sem]
-on: [pull_request, issue_comment]
+on:
+  pull_request:
+    branches: [ master ]
+  issue_comment:
+    types: [ edited ]
 jobs:
   release-notes_preview:
     name: Preview semantic version release notes 
