@@ -5,8 +5,6 @@ jobs:
     name: Check-fix invalid head=>base pairs (dev)
     runs-on: ubuntu-latest
     strategy:
-      matrix:
-        head-branch: [ 'main', 'next', 'dev' ]
     steps:
       - name: Dump GitHub context
         env:
