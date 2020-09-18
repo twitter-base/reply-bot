@@ -1,5 +1,9 @@
-name: Release Notes - Preview [issue][pr][sem]
-on: [pull_request, issue_comment]
+name: Preview Release Notes [issue][pr][sem]
+on:
+  pull_request:
+    branches: [ master ]
+  issue_comment:
+    types: [ edited ]
 jobs:
   release-notes_preview:
     name: Preview semantic version release notes 
@@ -37,7 +41,7 @@ jobs:
       - name: Preview release notes
         uses: snyk/release-notes-preview@v1.6.1
         with:
-          releaseBranch: main
+          releaseBranch: github.base_ref
         env:
           GITHUB_PR_USERNAME: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
