@@ -3,7 +3,11 @@ set -eu
 
 readonly CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 if [ "$CURRENT_BRANCH" != main ]; then
+<<<<<<< HEAD
   echo "You must be on 'master' branch to publish a release, aborting..."
+=======
+  echo "You must be on 'main' branch to publish a release, aborting..."
+>>>>>>> dev2
   exit 1
 fi
 
