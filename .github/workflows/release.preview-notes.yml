@@ -1,0 +1,24 @@
+name: Release-Notes-Preview
+
+on:
+  pull_request:
+    branches: [ main ]
+  issue_comment:
+    types: [ edited ]
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Fetch tags
+        run: |
+          git fetch --prune --unshallow --tags
+      - name: Preview release notes
+        uses: snyk/release-notes-preview@v1.6.1
+        with:
+          releaseBranch: main
+        env:
+          GITHUB_PR_USERNAME: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
