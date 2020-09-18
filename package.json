@@ -16,6 +16,7 @@
     "build": "",
     "cz": "cz",
     "commit": "commit",
+    "semantic-release": "semantic-release",
     "changelog": "conventional-changelog --preset angular --infile CHANGELOG.md --same-file",
     "changelog:unreleased": "conventional-changelog --preset angular --output-unreleased",
     "lint": "eslint lib",
@@ -113,11 +114,6 @@
     "transliteration"
   ],
   "author": "dezren39",
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
   "license": "MPL-2.0",
   "bugs": {
     "url": "https://github.com/twitter-base/reply-bot/issues"
@@ -127,25 +123,112 @@
     "anglicize": "^1.0.0",
     "bleetify": "^1.0.2",
     "emoji-regex": "^9.0.0",
-    "fs": "^0.0.1-security",
+    "fs": "0.0.2",
     "get-port": "^5.1.1",
     "replace-special-characters": "^1.0.2",
     "runes": "^0.4.3",
+    "timeout": "^0.2.1",
     "translitro": "^0.2.3",
     "twitter": "^1.7.1",
-    "twitter-autohook": "^1.7.1",
+    "twitter-autohook": "^1.7.2",
     "twitter-lite": "^0.14.0",
     "twitter-text": "^3.1.0",
-    "twitter-tweet": "^0.1.4",
+    "twitter-tweet": "^1.2.0",
     "unzalgo": "^2.1.2",
     "weird-to-normal-chars": "^1.1.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
+    "@commitlint/prompt-cli": "^11.0.0",
+    "@saithodev/semantic-release-backmerge": "^1.1.3",
+    "commitizen": "^4.2.1",
+    "cz-conventional-changelog": "^3.3.0",
     "dotenv": "^8.2.0",
     "husky": "^4.3.0",
-    "prettier": "^2.0.5",
-    "sleep-atomic": "^0.9.7"
+    "json": "^10.0.0",
+    "prettier": "^2.1.2",
+    "semantic-release": "^17.1.1",
+    "sleep-atomic": "^1.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "release": {
+    "branches": [
+      "main",
+      {
+        "name": "next",
+        "prerelease": true
+      },
+      {
+        "name": "dev",
+        "prerelease": true
+      }
+    ]
+  },
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/npm",
+    [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "CHANGELOG.md"
+      }
+    ],
+    [
+      "@semantic-release/git",
+      {
+        "assets": [
+          "CHANGELOG.md",
+          "CODE_OF_CONDUCT.md",
+          "CONTRIBUTORS.md",
+          "LICENSE",
+          "NOTICE.LICENSE.md",
+          "README.md",
+          "bin/server.js",
+          "lib/index.js",
+          "package.json"
+        ]
+      }
+    ],
+    [
+      "@semantic-release/github",
+      {
+        "assets": [
+          "CHANGELOG.md",
+          "CODE_OF_CONDUCT.md",
+          "CONTRIBUTORS.md",
+          "LICENSE",
+          "NOTICE.LICENSE.md",
+          "README.md",
+          "bin/server.js",
+          "lib/index.js",
+          "package.json"
+        ],
+        "assignees": "dezren39",
+        "addReleases": "bottom"
+      }
+    ],
+    [
+      "@saithodev/semantic-release-backmerge",
+      {
+        "branchName": "dev",
+        "plugins": [
+          [
+            "@semantic-release/exec",
+            {
+              "successCmd": "echo 'Version in main is ${nextRelease.version}' > test.txt && git add test.txt"
+            }
+          ]
+        ]
+      }
+    ]
+  ],
+  "publishConfig": {
+    "access": "public"
   }
 }
