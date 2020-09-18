@@ -2,6 +2,7 @@ name: Check Base-Branch [pr]
 on: [ pull_request, pull_request_target, pull_request_review_comment, pull_request_review ]
 jobs:
   check_base-branch:
+    name: Check-fix invalid head=>base pairs
     runs-on: ubuntu-latest
     steps:
         - name: Dump GitHub context
