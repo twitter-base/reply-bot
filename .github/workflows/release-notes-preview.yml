@@ -1,10 +1,11 @@
-name: Release Notes - Preview [pr][issue]
+name: Release Notes - Preview [issue][pr][sem]
 
 on:
   [pull_request, issue_comment]
 
 jobs:
   release-notes_preview:
+    name: Preview semantic version release notes 
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
