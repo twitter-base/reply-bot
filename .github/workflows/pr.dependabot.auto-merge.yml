@@ -1,10 +1,8 @@
-name: Dependabot Auto-Merge [pr][merge][@dependabot]
-
-on:
-  pull_request:
-
+name: Dependabot Auto-Merge [@dependabot][merge][pr]
+on: pull_request
 jobs:
   dependabot_auto-merge:
+    name: Dependabot Auto-Merge
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
@@ -31,8 +29,10 @@ jobs:
         env:
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
         run: echo "$MATRIX_CONTEXT"
-      - uses: actions/checkout@v2
-      - uses: ahmadnassri/action-dependabot-auto-merge@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Auto-merge minor dependabot pull requests
+        uses: ahmadnassri/action-dependabot-auto-merge@v2
         with:
           target: minor
           github-token: ${{ secrets.GITHUB_TOKEN }}

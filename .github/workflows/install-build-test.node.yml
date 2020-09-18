@@ -2,12 +2,12 @@ name: Install, Build, Test [@nodejs]
 on: [push, pull_request, pull_request_target, create, fork, release]
 jobs:
   install-build-test_node:
+    name: Install, Build, Test - ${{ matrix.pm }}(${{ matrix.node }})
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node: [ '14', '12', '10' ]
         pm: [ 'yarn', 'npm' ]
-    name: Install, Build, Test - ${{ matrix.pm }}(${{ matrix.node }})
     steps:
       - name: Dump GitHub context
         env:

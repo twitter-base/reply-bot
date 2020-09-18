@@ -12,6 +12,7 @@
   "scripts": {
     "sleep": "sleep",
     "start": "node --unhandled-rejections=strict --trace-warnings ./bin/server.js",
+    "start:runner": "node --unhandled-rejections=strict --trace-warnings ./bin/runner.js",
     "test": "node --unhandled-rejections=strict --trace-warnings ./test/test.js",
     "build": "",
     "cz": "cz",
@@ -114,11 +115,6 @@
     "transliteration"
   ],
   "author": "dezren39",
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
   "license": "MPL-2.0",
   "bugs": {
     "url": "https://github.com/twitter-base/reply-bot/issues"
@@ -143,18 +139,18 @@
     "weird-to-normal-chars": "^1.1.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
-    "@commitlint/prompt-cli": "^11.0.0",
-    "@saithodev/semantic-release-backmerge": "^1.1.3",
-    "commitizen": "^4.2.1",
-    "cz-conventional-changelog": "^3.3.0",
-    "dotenv": "^8.2.0",
-    "husky": "^4.3.0",
-    "json": "^10.0.0",
-    "prettier": "^2.1.2",
-    "semantic-release": "^17.1.1",
-    "sleep-atomic": "^1.0.0"
+    "@commitlint/cli": "11.0.0",
+    "@commitlint/config-conventional": "11.0.0",
+    "@commitlint/prompt-cli": "11.0.0",
+    "@saithodev/semantic-release-backmerge": "1.1.3",
+    "commitizen": "4.2.1",
+    "cz-conventional-changelog": "3.3.0",
+    "dotenv": "8.2.0",
+    "husky": "4.3.0",
+    "json": "10.0.0",
+    "prettier": "2.1.2",
+    "semantic-release": "17.1.2",
+    "sleep-atomic": "1.0.0"
   },
   "config": {
     "commitizen": {

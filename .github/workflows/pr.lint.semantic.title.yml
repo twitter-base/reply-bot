@@ -1,4 +1,4 @@
-name: "Title Lint [pr][sem][lint]"
+name: "Semantic Pull Request [lint][pr][sem]"
 on:
   pull_request_target:
     types:
@@ -7,7 +7,8 @@ on:
       - synchronize
 
 jobs:
-  semantic-pull-request:
+  semantic_pull-request:
+    name: Pull Request Title Lint
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
@@ -34,6 +35,7 @@ jobs:
         env:
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
         run: echo "$MATRIX_CONTEXT"
-      - uses: amannn/action-semantic-pull-request@v1.2.0
+      - name: Check title against semantic commit syntax
+        uses: amannn/action-semantic-pull-request@v1.2.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
