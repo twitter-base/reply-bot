@@ -168,7 +168,7 @@ jobs:
             GITHUB_PR_USERNAME: ${{ github.actor }}
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   check_base-branch_feature:
-    name: Check-fix invalid head=>base pairs (feature)
+    name: Preview Release Notes (head=>dev)
     runs-on: ubuntu-latest
     steps:
         - name: Dump GitHub context
