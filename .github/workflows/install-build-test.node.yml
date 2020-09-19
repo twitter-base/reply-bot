@@ -1,5 +1,5 @@
 name: Check Base-Branch [pr]
-on: [ event.pull_request, event.pull_request_target, event.pull_request_review_comment, event.pull_request_review ]
+on: [ pull_request, pull_request_target, pull_request_review_comment, pull_request_review ]
 jobs:
   check_base-branch_dev:
     name: Check-fix invalid head=>base pairs (dev)
