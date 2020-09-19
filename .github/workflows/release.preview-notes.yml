@@ -29,14 +29,14 @@ jobs:
         env:
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
         run: echo "$MATRIX_CONTEXT"
-      - if: github.ref == 'refs/heads/dev' || github.head_ref == 'dev' || github.head.ref == 'dev'
+      - if: github.ref == 'refs/heads/dev' || github.head_ref == 'dev' || github.head.ref == 'dev' || github.event.pull_request.head.ref == 'dev'
         name: Checkout repository
         uses: actions/checkout@v2
-      - if: github.ref == 'refs/heads/ndevext' || github.head_ref == 'dev' || github.head.ref == 'dev'
+      - if: github.ref == 'refs/heads/ndevext' || github.head_ref == 'dev' || github.head.ref == 'dev' || github.event.pull_request.head.ref == 'dev'
         name: Fetch tags
         run: |
           git fetch --prune --unshallow --tags
-      - if: github.ref == 'refs/heads/dev' || github.head_ref == 'dev' || github.head.ref == 'dev'
+      - if: github.ref == 'refs/heads/dev' || github.head_ref == 'dev' || github.head.ref == 'dev' || github.event.pull_request.head.ref == 'dev'
         name: Preview release notes (dev=>next)
         uses: snyk/release-notes-preview@v1.6.1
         with:
@@ -72,14 +72,14 @@ jobs:
           env:
             MATRIX_CONTEXT: ${{ toJson(matrix) }}
           run: echo "$MATRIX_CONTEXT"
-        - if: github.ref == 'refs/heads/next' || github.head_ref == 'next' || github.head.ref == 'next'
+        - if: github.ref == 'refs/heads/next' || github.head_ref == 'next' || github.head.ref == 'next' || github.event.pull_request.head.ref == 'next'
           name: Checkout repository
           uses: actions/checkout@v2
-        - if: github.ref == 'refs/heads/next' || github.head_ref == 'next' || github.head.ref == 'next'
+        - if: github.ref == 'refs/heads/next' || github.head_ref == 'next' || github.head.ref == 'next' || github.event.pull_request.head.ref == 'next'
           name: Fetch tags
           run: |
             git fetch --prune --unshallow --tags
-        - if: github.ref == 'refs/heads/next' || github.head_ref == 'next' || github.head.ref == 'next'
+        - if: github.ref == 'refs/heads/next' || github.head_ref == 'next' || github.head.ref == 'next' || github.event.pull_request.head.ref == 'next'
           name: Preview release notes (next=>main)
           uses: snyk/release-notes-preview@v1.6.1
           with:
@@ -123,7 +123,7 @@ jobs:
         - name: Preview release notes (next=>main)
           uses: snyk/release-notes-preview@v1.6.1
           with:
-            releaseBranch: ${{ github.head.ref }}
+            releaseBranch: ${{ github.event.pull_request.head.ref }}
           env:
             GITHUB_PR_USERNAME: ${{ github.actor }}
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
