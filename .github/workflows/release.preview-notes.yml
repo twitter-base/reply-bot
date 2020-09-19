@@ -1,11 +1,5 @@
 name: Release-Notes-Preview
-
-on:
-  pull_request:
-    branches: [ main ]
-  issue_comment:
-    types: [ edited ]
-
+on: [ pull_request, issue_comment ]
 jobs:
   preview:
     runs-on: ubuntu-latest
