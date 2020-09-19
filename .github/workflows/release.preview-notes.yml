@@ -1,92 +1,95 @@
 name: Release Notes Preview
-on: [ pull_request, pull_request_target, pull_request_review_comment, pull_request_review, issue_comment ]
+on:
+  pull_request:
+  issue_comment:
+    types: [ edited ]
 jobs:
-  release-notes_preview_dev:
-    name: Preview Release Notes (dev)
-    runs-on: ubuntu-latest
-    steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-      - name: Dump job context
-        env:
-          JOB_CONTEXT: ${{ toJson(job) }}
-        run: echo "$JOB_CONTEXT"
-      - name: Dump steps context
-        env:
-          STEPS_CONTEXT: ${{ toJson(steps) }}
-        run: echo "$STEPS_CONTEXT"
-      - name: Dump runner context
-        env:
-          RUNNER_CONTEXT: ${{ toJson(runner) }}
-        run: echo "$RUNNER_CONTEXT"
-      - name: Dump strategy context
-        env:
-          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
-        run: echo "$STRATEGY_CONTEXT"
-      - name: Dump matrix context
-        env:
-          MATRIX_CONTEXT: ${{ toJson(matrix) }}
-        run: echo "$MATRIX_CONTEXT"
-      - if: github.ref == 'refs/heads/dev' || github.head_ref == 'dev' || github.head.ref == 'dev' || github.event.pull_request.head.ref == 'dev'
-        name: Checkout repository
-        uses: actions/checkout@v2
-      - if: github.ref == 'refs/heads/dev' || github.head_ref == 'dev' || github.head.ref == 'dev' || github.event.pull_request.head.ref == 'dev'
-        name: Fetch tags
-        run: |
-          git fetch --prune --unshallow --tags
-      - if: github.ref == 'refs/heads/dev' || github.head_ref == 'dev' || github.head.ref == 'dev' || github.event.pull_request.head.ref == 'dev'
-        name: Preview release notes (dev=>next)
-        uses: snyk/release-notes-preview@v1.6.1
-        with:
-          releaseBranch: next
-        env:
-          GITHUB_PR_USERNAME: ${{ github.actor }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  release-notes_preview_next:
-    name: Preview Release Notes (next)
-    runs-on: ubuntu-latest
-    steps:
-        - name: Dump GitHub context
-          env:
-            GITHUB_CONTEXT: ${{ toJson(github) }}
-          run: echo "$GITHUB_CONTEXT"
-        - name: Dump job context
-          env:
-            JOB_CONTEXT: ${{ toJson(job) }}
-          run: echo "$JOB_CONTEXT"
-        - name: Dump steps context
-          env:
-            STEPS_CONTEXT: ${{ toJson(steps) }}
-          run: echo "$STEPS_CONTEXT"
-        - name: Dump runner context
-          env:
-            RUNNER_CONTEXT: ${{ toJson(runner) }}
-          run: echo "$RUNNER_CONTEXT"
-        - name: Dump strategy context
-          env:
-            STRATEGY_CONTEXT: ${{ toJson(strategy) }}
-          run: echo "$STRATEGY_CONTEXT"
-        - name: Dump matrix context
-          env:
-            MATRIX_CONTEXT: ${{ toJson(matrix) }}
-          run: echo "$MATRIX_CONTEXT"
-        - if: github.ref == 'refs/heads/next' || github.head_ref == 'next' || github.head.ref == 'next' || github.event.pull_request.head.ref == 'next'
-          name: Checkout repository
-          uses: actions/checkout@v2
-        - if: github.ref == 'refs/heads/next' || github.head_ref == 'next' || github.head.ref == 'next' || github.event.pull_request.head.ref == 'next'
-          name: Fetch tags
-          run: |
-            git fetch --prune --unshallow --tags
-        - if: github.ref == 'refs/heads/next' || github.head_ref == 'next' || github.head.ref == 'next' || github.event.pull_request.head.ref == 'next'
-          name: Preview release notes (next=>main)
-          uses: snyk/release-notes-preview@v1.6.1
-          with:
-            releaseBranch: main
-          env:
-            GITHUB_PR_USERNAME: ${{ github.actor }}
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#   release-notes_preview_dev:
+#     name: Preview Release Notes (dev)
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Dump GitHub context
+#         env:
+#           GITHUB_CONTEXT: ${{ toJson(github) }}
+#         run: echo "$GITHUB_CONTEXT"
+#       - name: Dump job context
+#         env:
+#           JOB_CONTEXT: ${{ toJson(job) }}
+#         run: echo "$JOB_CONTEXT"
+#       - name: Dump steps context
+#         env:
+#           STEPS_CONTEXT: ${{ toJson(steps) }}
+#         run: echo "$STEPS_CONTEXT"
+#       - name: Dump runner context
+#         env:
+#           RUNNER_CONTEXT: ${{ toJson(runner) }}
+#         run: echo "$RUNNER_CONTEXT"
+#       - name: Dump strategy context
+#         env:
+#           STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+#         run: echo "$STRATEGY_CONTEXT"
+#       - name: Dump matrix context
+#         env:
+#           MATRIX_CONTEXT: ${{ toJson(matrix) }}
+#         run: echo "$MATRIX_CONTEXT"
+#       - if: github.ref == 'refs/heads/dev' || github.head_ref == 'dev' || github.head.ref == 'dev' || github.event.pull_request.head.ref == 'dev'
+#         name: Checkout repository
+#         uses: actions/checkout@v2
+#       - if: github.ref == 'refs/heads/dev' || github.head_ref == 'dev' || github.head.ref == 'dev' || github.event.pull_request.head.ref == 'dev'
+#         name: Fetch tags
+#         run: |
+#           git fetch --prune --unshallow --tags
+#       - if: github.ref == 'refs/heads/dev' || github.head_ref == 'dev' || github.head.ref == 'dev' || github.event.pull_request.head.ref == 'dev'
+#         name: Preview release notes (dev=>next)
+#         uses: snyk/release-notes-preview@v1.6.1
+#         with:
+#           releaseBranch: next
+#         env:
+#           GITHUB_PR_USERNAME: ${{ github.actor }}
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#   release-notes_preview_next:
+#     name: Preview Release Notes (next)
+#     runs-on: ubuntu-latest
+#     steps:
+#         - name: Dump GitHub context
+#           env:
+#             GITHUB_CONTEXT: ${{ toJson(github) }}
+#           run: echo "$GITHUB_CONTEXT"
+#         - name: Dump job context
+#           env:
+#             JOB_CONTEXT: ${{ toJson(job) }}
+#           run: echo "$JOB_CONTEXT"
+#         - name: Dump steps context
+#           env:
+#             STEPS_CONTEXT: ${{ toJson(steps) }}
+#           run: echo "$STEPS_CONTEXT"
+#         - name: Dump runner context
+#           env:
+#             RUNNER_CONTEXT: ${{ toJson(runner) }}
+#           run: echo "$RUNNER_CONTEXT"
+#         - name: Dump strategy context
+#           env:
+#             STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+#           run: echo "$STRATEGY_CONTEXT"
+#         - name: Dump matrix context
+#           env:
+#             MATRIX_CONTEXT: ${{ toJson(matrix) }}
+#           run: echo "$MATRIX_CONTEXT"
+#         - if: github.ref == 'refs/heads/next' || github.head_ref == 'next' || github.head.ref == 'next' || github.event.pull_request.head.ref == 'next'
+#           name: Checkout repository
+#           uses: actions/checkout@v2
+#         - if: github.ref == 'refs/heads/next' || github.head_ref == 'next' || github.head.ref == 'next' || github.event.pull_request.head.ref == 'next'
+#           name: Fetch tags
+#           run: |
+#             git fetch --prune --unshallow --tags
+#         - if: github.ref == 'refs/heads/next' || github.head_ref == 'next' || github.head.ref == 'next' || github.event.pull_request.head.ref == 'next'
+#           name: Preview release notes (next=>main)
+#           uses: snyk/release-notes-preview@v1.6.1
+#           with:
+#             releaseBranch: main
+#           env:
+#             GITHUB_PR_USERNAME: ${{ github.actor }}
+#             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   release-notes_preview_head_to_base:
     name: Preview Release Notes (head=>base)
     runs-on: ubuntu-latest
@@ -167,46 +170,46 @@ jobs:
           env:
             GITHUB_PR_USERNAME: ${{ github.actor }}
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  check_base-branch_feature:
-    name: Preview Release Notes (head=>dev)
-    runs-on: ubuntu-latest
-    steps:
-        - name: Dump GitHub context
-          env:
-            GITHUB_CONTEXT: ${{ toJson(github) }}
-          run: echo "$GITHUB_CONTEXT"
-        - name: Dump job context
-          env:
-            JOB_CONTEXT: ${{ toJson(job) }}
-          run: echo "$JOB_CONTEXT"
-        - name: Dump steps context
-          env:
-            STEPS_CONTEXT: ${{ toJson(steps) }}
-          run: echo "$STEPS_CONTEXT"
-        - name: Dump runner context
-          env:
-            RUNNER_CONTEXT: ${{ toJson(runner) }}
-          run: echo "$RUNNER_CONTEXT"
-        - name: Dump strategy context
-          env:
-            STRATEGY_CONTEXT: ${{ toJson(strategy) }}
-          run: echo "$STRATEGY_CONTEXT"
-        - name: Dump matrix context
-          env:
-            MATRIX_CONTEXT: ${{ toJson(matrix) }}
-          run: echo "$MATRIX_CONTEXT"
-        - if: github.ref != 'refs/heads/dev' && github.ref != 'refs/heads/next' && github.ref != 'refs/heads/main' && github.head_ref != 'dev' && github.head.ref != 'dev'  && github.head_ref != 'next' && github.head.ref != 'next' && github.head_ref != 'main' && github.head.ref != 'main'
-          name: Checkout repository
-          uses: actions/checkout@v2
-        - if: github.ref != 'refs/heads/dev' && github.ref != 'refs/heads/next' && github.ref != 'refs/heads/main' && github.head_ref != 'dev' && github.head.ref != 'dev'  && github.head_ref != 'next' && github.head.ref != 'next' && github.head_ref != 'main' && github.head.ref != 'main'
-          name: Fetch tags
-          run: |
-            git fetch --prune --unshallow --tags
-        - if: github.ref != 'refs/heads/dev' && github.ref != 'refs/heads/next' && github.ref != 'refs/heads/main' && github.head_ref != 'dev' && github.head.ref != 'dev'  && github.head_ref != 'next' && github.head.ref != 'next' && github.head_ref != 'main' && github.head.ref != 'main'
-          name: Preview release notes (head=>dev)
-          uses: snyk/release-notes-preview@v1.6.1
-          with:
-            releaseBranch: dev
-          env:
-            GITHUB_PR_USERNAME: ${{ github.actor }}
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#   check_base-branch_feature:
+#     name: Preview Release Notes (head=>dev)
+#     runs-on: ubuntu-latest
+#     steps:
+#         - name: Dump GitHub context
+#           env:
+#             GITHUB_CONTEXT: ${{ toJson(github) }}
+#           run: echo "$GITHUB_CONTEXT"
+#         - name: Dump job context
+#           env:
+#             JOB_CONTEXT: ${{ toJson(job) }}
+#           run: echo "$JOB_CONTEXT"
+#         - name: Dump steps context
+#           env:
+#             STEPS_CONTEXT: ${{ toJson(steps) }}
+#           run: echo "$STEPS_CONTEXT"
+#         - name: Dump runner context
+#           env:
+#             RUNNER_CONTEXT: ${{ toJson(runner) }}
+#           run: echo "$RUNNER_CONTEXT"
+#         - name: Dump strategy context
+#           env:
+#             STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+#           run: echo "$STRATEGY_CONTEXT"
+#         - name: Dump matrix context
+#           env:
+#             MATRIX_CONTEXT: ${{ toJson(matrix) }}
+#           run: echo "$MATRIX_CONTEXT"
+#         - if: github.ref != 'refs/heads/dev' && github.ref != 'refs/heads/next' && github.ref != 'refs/heads/main' && github.head_ref != 'dev' && github.head.ref != 'dev'  && github.head_ref != 'next' && github.head.ref != 'next' && github.head_ref != 'main' && github.head.ref != 'main'
+#           name: Checkout repository
+#           uses: actions/checkout@v2
+#         - if: github.ref != 'refs/heads/dev' && github.ref != 'refs/heads/next' && github.ref != 'refs/heads/main' && github.head_ref != 'dev' && github.head.ref != 'dev'  && github.head_ref != 'next' && github.head.ref != 'next' && github.head_ref != 'main' && github.head.ref != 'main'
+#           name: Fetch tags
+#           run: |
+#             git fetch --prune --unshallow --tags
+#         - if: github.ref != 'refs/heads/dev' && github.ref != 'refs/heads/next' && github.ref != 'refs/heads/main' && github.head_ref != 'dev' && github.head.ref != 'dev'  && github.head_ref != 'next' && github.head.ref != 'next' && github.head_ref != 'main' && github.head.ref != 'main'
+#           name: Preview release notes (head=>dev)
+#           uses: snyk/release-notes-preview@v1.6.1
+#           with:
+#             releaseBranch: dev
+#           env:
+#             GITHUB_PR_USERNAME: ${{ github.actor }}
+#             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
