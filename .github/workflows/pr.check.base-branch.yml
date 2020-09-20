@@ -137,7 +137,7 @@ jobs:
           env:
             MATRIX_CONTEXT: ${{ toJson(matrix) }}
           run: echo "$MATRIX_CONTEXT"
-        - if: github.ref != 'refs/heads/dev' && github.ref != 'refs/heads/next' && github.ref != 'refs/heads/main' && github.head_ref != 'dev' && github.head.ref != 'dev'  && github.head_ref != 'next' && github.head.ref != 'next' && github.head_ref != 'main' && github.head.ref != 'main' || github.event.pull_request.head.ref == 'dev' || github.event.pull_request.head.ref == 'next' || github.event.pull_request.head.ref == 'main'
+        - if: github.ref != 'refs/heads/dev' && github.ref != 'refs/heads/next' && github.ref != 'refs/heads/main' && github.head_ref != 'dev' && github.head.ref != 'dev'  && github.head_ref != 'next' && github.head.ref != 'next' && github.head_ref != 'main' && github.head.ref != 'main' && github.event.pull_request.head.ref == 'dev' && github.event.pull_request.head.ref == 'next' && github.event.pull_request.head.ref == 'main'
           name: Check base-branch(feature) - main,next=>dev (FORCE)
           uses: dezren39/check-base-branch-action@v2
           with:
