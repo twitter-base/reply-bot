@@ -1,8 +1,44 @@
 name: Check Base-Branch [pr]
-on: [ pull_request, pull_request_target, pull_request_review_comment, pull_request_review ]
+on: [ pull_request, pull_request_target ]
 jobs:
-  check_base-branch:
-    name: Check-fix invalid head=>base pairs
+  check_base-branch_dev:
+    name: Check-fix invalid head=>base pairs (dev)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Dump job context
+        env:
+          JOB_CONTEXT: ${{ toJson(job) }}
+        run: echo "$JOB_CONTEXT"
+      - name: Dump steps context
+        env:
+          STEPS_CONTEXT: ${{ toJson(steps) }}
+        run: echo "$STEPS_CONTEXT"
+      - name: Dump runner context
+        env:
+          RUNNER_CONTEXT: ${{ toJson(runner) }}
+        run: echo "$RUNNER_CONTEXT"
+      - name: Dump strategy context
+        env:
+          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+        run: echo "$STRATEGY_CONTEXT"
+      - name: Dump matrix context
+        env:
+          MATRIX_CONTEXT: ${{ toJson(matrix) }}
+        run: echo "$MATRIX_CONTEXT"
+      - if: github.ref == 'refs/heads/dev' || github.head_ref == 'dev' || github.head.ref == 'dev' || github.event.pull_request.head.ref == 'dev' 
+        name: Check base-branch(dev) - main=>next (FORCE)
+        uses: dezren39/check-base-branch-action@v2
+        with:
+          protected-branches: "main"
+          default-branch: "next"
+          update-branch: true
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+  check_base-branch_next:
+    name: Check-fix invalid head=>base pairs (next)
     runs-on: ubuntu-latest
     steps:
         - name: Dump GitHub context
@@ -29,15 +65,7 @@ jobs:
           env:
             MATRIX_CONTEXT: ${{ toJson(matrix) }}
           run: echo "$MATRIX_CONTEXT"
-        - if: github.ref == 'refs/heads/dev' || github.head_ref == 'dev' || github.head.ref == 'dev'
-          name: Check base-branch(dev) - main=>next (FORCE)
-          uses: dezren39/check-base-branch-action@v2
-          with:
-            protected-branches: "main"
-            default-branch: "next"
-            update-branch: true
-            repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        - if: github.ref == 'refs/heads/next' || github.head_ref == 'next' || github.head.ref == 'next'
+        - if: github.ref == 'refs/heads/next' || github.head_ref == 'next' || github.head.ref == 'next' || github.event.pull_request.head.ref == 'next'
           name: Check base-branch(next) - dev=>main
           uses: dezren39/check-base-branch-action@v2
           with:
@@ -45,7 +73,35 @@ jobs:
             default-branch: "main"
             update-branch: false
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        - if: github.ref == 'refs/heads/main' || github.head_ref == 'main' || github.head.ref == 'main'
+  check_base-branch_main:
+    name: Check-fix invalid head=>base pairs (main)
+    runs-on: ubuntu-latest
+    steps:
+        - name: Dump GitHub context
+          env:
+            GITHUB_CONTEXT: ${{ toJson(github) }}
+          run: echo "$GITHUB_CONTEXT"
+        - name: Dump job context
+          env:
+            JOB_CONTEXT: ${{ toJson(job) }}
+          run: echo "$JOB_CONTEXT"
+        - name: Dump steps context
+          env:
+            STEPS_CONTEXT: ${{ toJson(steps) }}
+          run: echo "$STEPS_CONTEXT"
+        - name: Dump runner context
+          env:
+            RUNNER_CONTEXT: ${{ toJson(runner) }}
+          run: echo "$RUNNER_CONTEXT"
+        - name: Dump strategy context
+          env:
+            STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+          run: echo "$STRATEGY_CONTEXT"
+        - name: Dump matrix context
+          env:
+            MATRIX_CONTEXT: ${{ toJson(matrix) }}
+          run: echo "$MATRIX_CONTEXT"
+        - if: github.ref == 'refs/heads/main' || github.head_ref == 'main' || github.head.ref == 'main' || github.event.pull_request.head.ref == 'main'
           name: Check base-branch(main) - next=>dev
           uses: dezren39/check-base-branch-action@v2
           with:
@@ -53,7 +109,35 @@ jobs:
             default-branch: "dev"
             update-branch: false
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        - if: github.ref != 'refs/heads/dev' && github.ref != 'refs/heads/next' && github.ref != 'refs/heads/main' && github.head_ref != 'dev' && github.head.ref != 'dev'  && github.head_ref != 'next' && github.head.ref != 'next' && github.head_ref != 'main' && github.head.ref != 'main'
+  check_base-branch_feature:
+    name: Check-fix invalid head=>base pairs (feature)
+    runs-on: ubuntu-latest
+    steps:
+        - name: Dump GitHub context
+          env:
+            GITHUB_CONTEXT: ${{ toJson(github) }}
+          run: echo "$GITHUB_CONTEXT"
+        - name: Dump job context
+          env:
+            JOB_CONTEXT: ${{ toJson(job) }}
+          run: echo "$JOB_CONTEXT"
+        - name: Dump steps context
+          env:
+            STEPS_CONTEXT: ${{ toJson(steps) }}
+          run: echo "$STEPS_CONTEXT"
+        - name: Dump runner context
+          env:
+            RUNNER_CONTEXT: ${{ toJson(runner) }}
+          run: echo "$RUNNER_CONTEXT"
+        - name: Dump strategy context
+          env:
+            STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+          run: echo "$STRATEGY_CONTEXT"
+        - name: Dump matrix context
+          env:
+            MATRIX_CONTEXT: ${{ toJson(matrix) }}
+          run: echo "$MATRIX_CONTEXT"
+        - if: github.ref != 'refs/heads/dev' && github.ref != 'refs/heads/next' && github.ref != 'refs/heads/main' && github.head_ref != 'dev' && github.head.ref != 'dev'  && github.head_ref != 'next' && github.head.ref != 'next' && github.head_ref != 'main' && github.head.ref != 'main' && github.event.pull_request.head.ref == 'dev' && github.event.pull_request.head.ref == 'next' && github.event.pull_request.head.ref == 'main'
           name: Check base-branch(feature) - main,next=>dev (FORCE)
           uses: dezren39/check-base-branch-action@v2
           with:
