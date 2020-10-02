@@ -24,13 +24,9 @@ MODULE_SCREEN_NAME=twetJs
 BOT_NAME=twetJs
 SIGNATURE="\nThanks, USER_SCREEN_NAME!\n#BOT_SCREEN_NAME"
 ```
-some of these may not be needed,
-
-rules for how this works can be found in the source code,
+some of these may not be needed, rules for how this works can be found in the source code,
 
 ngrok auth token requires registration at https://ngrok.com/, isn't required, removes webhook timeout
-
-
 
  - source: https://github.com/twitter-base/reply-bot/tree/main#readme
  - bot: https://twitter.com/SpongeScribe
