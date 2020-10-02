@@ -34,14 +34,14 @@ ngrok auth token requires registration at https://ngrok.com/
 
 autohook replier, strangetext transcription
 
- - source: https://github.com/twitter-base/image-generation/tree/main#readme
+ - source: https://github.com/twitter-base/reply-bot/tree/main#readme
  - bot: https://twitter.com/SpongeScribe
  - owner/author/contact: https://twitter.com/dezren39
- - code_of_conduct: https://github.com/twitter-base/image-generation/blob/main/CODE_OF_CONDUCT.md
- - contributors: https://github.com/twitter-base/image-generation/blob/main/CONTRIBUTORS.md
- - license: https://github.com/twitter-base/image-generation/blob/main/LICENSE
- - license.NOTICE: https://github.com/twitter-base/image-generation/blob/main/NOTICE.LICENSE.md
- - changelog: https://github.com/twitter-base/image-generation/blob/main/CHANGELOG.md
+ - code_of_conduct: https://github.com/twitter-base/reply-bot/blob/main/CODE_OF_CONDUCT.md
+ - contributors: https://github.com/twitter-base/reply-bot/blob/main/CONTRIBUTORS.md
+ - license: https://github.com/twitter-base/reply-bot/blob/main/LICENSE
+ - license.NOTICE: https://github.com/twitter-base/reply-bot/blob/main/NOTICE.LICENSE.md
+ - changelog: https://github.com/twitter-base/reply-bot/blob/main/CHANGELOG.md
 
 ----
 
