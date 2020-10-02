@@ -2,11 +2,13 @@
 autohook replier, strangetext transcription
 
 ```
-npm install twitter-reply-bot
+git clone https://github.com/twitter-base/reply-bot
+cd reply-bot
+yarn
 yarn reply-bot
 ```
 
-there's also a `twitter-reply-bot` bin and eventually you can source it and i'll separate _my_ bot from it.
+there's also a `twitter-reply-bot` bin and eventually i'll abstract and one can import/require it.
 
 `.env` / `.env.twitter` , injected into your environment may work :
 
@@ -23,10 +25,11 @@ BOT_NAME=twetJs
 SIGNATURE="\nThanks, USER_SCREEN_NAME!\n#BOT_SCREEN_NAME"
 ```
 some of these may not be needed,
+
 rules for how this works can be found in the source code,
-ngrok auth token requires registration at https://ngrok.com/
-ngrok isn't technically required, with some code modification
-ngrok auth token isn't required, removes webhook timeout
+
+ngrok auth token requires registration at https://ngrok.com/, isn't required, removes webhook timeout
+
 
 
  - source: https://github.com/twitter-base/reply-bot/tree/main#readme
