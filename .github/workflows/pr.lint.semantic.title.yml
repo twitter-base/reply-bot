@@ -39,6 +39,6 @@ jobs:
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
         run: echo "$MATRIX_CONTEXT"
       - name: Check title against semantic commit syntax
-        uses: amannn/action-semantic-pull-request@v1.2.0
+        uses: amannn/action-semantic-pull-request@v2.1.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
