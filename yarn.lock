@@ -1656,7 +1656,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commitizen@npm:4.2.1, commitizen@npm:^4.0.3":
+"commitizen@npm:4.2.3":
+  version: 4.2.3
+  resolution: "commitizen@npm:4.2.3"
+  dependencies:
+    cachedir: 2.2.0
+    cz-conventional-changelog: 3.2.0
+    dedent: 0.7.0
+    detect-indent: 6.0.0
+    find-node-modules: 2.0.0
+    find-root: 1.1.0
+    fs-extra: 8.1.0
+    glob: 7.1.4
+    inquirer: 6.5.2
+    is-utf8: ^0.2.1
+    lodash: ^4.17.20
+    minimist: 1.2.5
+    strip-bom: 4.0.0
+    strip-json-comments: 3.0.1
+  bin:
+    commitizen: bin/commitizen
+    cz: bin/git-cz
+    git-cz: bin/git-cz
+  checksum: b7d74861e2e9fdee67b74581e0cb4a9f37546b5d2fc641317d0b971f70afcd795363130df5534a805090f64dbfed100e4bb9664c01d381922019e00ade4ebd01
+  languageName: node
+  linkType: hard
+
+"commitizen@npm:^4.0.3":
   version: 4.2.1
   resolution: "commitizen@npm:4.2.1"
   dependencies:
@@ -8195,7 +8221,7 @@ resolve@^1.10.0:
     "@saithodev/semantic-release-backmerge": 1.2.0
     anglicize: ^1.0.0
     bleetify: ^1.0.2
-    commitizen: 4.2.1
+    commitizen: 4.2.3
     cz-conventional-changelog: 3.3.0
     dotenv: 8.2.0
     emoji-regex: ^9.0.0
