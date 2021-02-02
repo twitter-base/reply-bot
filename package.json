@@ -1,7 +1,7 @@
 {
   "name": "twitter-reply-bot",
   "type": "module",
-  "version": "0.6.11",
+  "version": "0.6.12",
   "description": "base for twitter reply bot using autohook",
   "main": "./lib/index.js",
   "module": "lib/index.js",
@@ -149,7 +149,7 @@
     "husky": "4.3.0",
     "json": "10.0.0",
     "prettier": "2.1.2",
-    "semantic-release": "17.1.2",
+    "semantic-release": "17.2.3",
     "sleep-atomic": "1.0.0"
   },
   "config": {
