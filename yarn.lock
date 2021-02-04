@@ -7184,9 +7184,9 @@ resolve@^1.10.0:
   languageName: node
   linkType: hard
 
-"semantic-release@npm:17.1.2":
-  version: 17.1.2
-  resolution: "semantic-release@npm:17.1.2"
+"semantic-release@npm:17.2.3":
+  version: 17.2.3
+  resolution: "semantic-release@npm:17.2.3"
   dependencies:
     "@semantic-release/commit-analyzer": ^8.0.0
     "@semantic-release/error": ^2.2.0
@@ -7218,7 +7218,7 @@ resolve@^1.10.0:
     yargs: ^15.0.1
   bin:
     semantic-release: bin/semantic-release.js
-  checksum: f5126d7f310c8f79996cf13d469ae6b0b8142ff1009988174253fbc36bf1590755cbf7b8e97799d5f0f279e1d026e7693c62b820219b09918544716ed575d9d1
+  checksum: 9a7d1b2803fdebfea95d85a5378739220b5b262a1fffe809266f8aa1751292038a01233453a627349c522063602d441d7f81d6b5fec4a333eb84e1a5103b3ea9
   languageName: node
   linkType: hard
 
@@ -8251,7 +8251,7 @@ resolve@^1.10.0:
     prettier: 2.1.2
     replace-special-characters: ^1.0.2
     runes: ^0.4.3
-    semantic-release: 17.1.2
+    semantic-release: 17.2.3
     sleep-atomic: 1.0.0
     timeout: ^0.2.1
     translitro: ^0.2.3
