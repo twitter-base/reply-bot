@@ -1,7 +1,7 @@
 {
   "name": "twitter-reply-bot",
   "type": "module",
-  "version": "0.6.13",
+  "version": "0.6.14",
   "description": "base for twitter reply bot using autohook",
   "main": "./lib/index.js",
   "module": "lib/index.js",
@@ -145,7 +145,7 @@
     "@saithodev/semantic-release-backmerge": "1.2.1",
     "commitizen": "4.2.1",
     "cz-conventional-changelog": "3.3.0",
-    "dotenv": "8.2.0",
+    "dotenv": "10.0.0",
     "husky": "6.0.0",
     "json": "10.0.0",
     "prettier": "2.1.2",
