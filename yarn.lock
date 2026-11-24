@@ -1634,7 +1634,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commitizen@npm:4.2.1, commitizen@npm:^4.0.3":
+"commitizen@npm:4.2.4":
+  version: 4.2.4
+  resolution: "commitizen@npm:4.2.4"
+  dependencies:
+    cachedir: 2.2.0
+    cz-conventional-changelog: 3.2.0
+    dedent: 0.7.0
+    detect-indent: 6.0.0
+    find-node-modules: ^2.1.2
+    find-root: 1.1.0
+    fs-extra: 8.1.0
+    glob: 7.1.4
+    inquirer: 6.5.2
+    is-utf8: ^0.2.1
+    lodash: ^4.17.20
+    minimist: 1.2.5
+    strip-bom: 4.0.0
+    strip-json-comments: 3.0.1
+  bin:
+    commitizen: bin/commitizen
+    cz: bin/git-cz
+    git-cz: bin/git-cz
+  checksum: 9352b0901f788a2cc2ff449d200fc113c02e149e8a62ceebc4a6b91b66fee9ca2b4beba0874c9cb190d704328560a86ce104f4132a0b019c98c5b7fa56c86acc
+  languageName: node
+  linkType: hard
+
+"commitizen@npm:^4.0.3":
   version: 4.2.1
   resolution: "commitizen@npm:4.2.1"
   dependencies:
@@ -2734,6 +2760,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"find-node-modules@npm:^2.1.2":
+  version: 2.1.3
+  resolution: "find-node-modules@npm:2.1.3"
+  dependencies:
+    findup-sync: ^4.0.0
+    merge: ^2.1.1
+  checksum: de5fe12de261f46763a7cf933026ea7193d75205e1365cb1682a77ad535d1c4bbc56cbf53ff1f01c81960192fbc70bd76e692dafdaeaecfc49bca038aa74a04e
+  languageName: node
+  linkType: hard
+
 "find-npm-prefix@npm:^1.0.2":
   version: 1.0.2
   resolution: "find-npm-prefix@npm:1.0.2"
@@ -2804,6 +2840,18 @@ __metadata:
     micromatch: ^3.0.4
     resolve-dir: ^1.0.1
   checksum: be03bd98fc3f6666933b958e690b3913ac932496d55db13379de93657d86073c18ec53e7438ffe3adf98b606830c3d4645fae985e857645dd8a56983188abade
+  languageName: node
+  linkType: hard
+
+"findup-sync@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "findup-sync@npm:4.0.0"
+  dependencies:
+    detect-file: ^1.0.0
+    is-glob: ^4.0.0
+    micromatch: ^4.0.2
+    resolve-dir: ^1.0.1
+  checksum: 77cae4d79cd46b00c3fe8dc8b4e06472e75351096a70de0ebd57f11b7efdb69e3bfe3097f54e7f219e385dd5e84e4f11029fbe6b003f0bf2140ebb6695ed13ea
   languageName: node
   linkType: hard
 
@@ -4921,6 +4969,13 @@ __metadata:
   version: 1.2.1
   resolution: "merge@npm:1.2.1"
   checksum: f6a054fa9666ab56eaac9628c24fb5710ba4ccd3a2d3f511247fbbc470f27d0dcf3bbbddbc84ad98dc47304830775caffe95ee3bd67b5e0b0f7c280122f24ca8
+  languageName: node
+  linkType: hard
+
+"merge@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "merge@npm:2.1.1"
+  checksum: 5b66853a10df1fe86e2ea04b216b7b9a5911643617473d9ef499d6bf9bc5ed856dea27b6a6a1224bc091831c234e8be3bbf4964d11304dce82294558a11c3333
   languageName: node
   linkType: hard
 
@@ -8052,7 +8107,7 @@ __metadata:
     "@saithodev/semantic-release-backmerge": 1.2.1
     anglicize: ^1.0.0
     bleetify: ^1.0.2
-    commitizen: 4.2.1
+    commitizen: 4.2.4
     cz-conventional-changelog: 3.3.0
     dotenv: 8.2.0
     emoji-regex: ^9.0.0
