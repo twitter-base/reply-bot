@@ -8097,6 +8097,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"twitter-lite@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "twitter-lite@npm:1.1.0"
+  dependencies:
+    cross-fetch: ^3.0.0
+    oauth-1.0a: ^2.2.4
+  checksum: 6418198f88748d8e144fe97e5f983f6e667812f011dbee01c7ee19359448c31ff05aab49efc110e48a35d3ea04c9f33167d28668d03d44b53c5eb2b8a77db00d
+  languageName: node
+  linkType: hard
+
 "twitter-reply-bot@workspace:.":
   version: 0.0.0-use.local
   resolution: "twitter-reply-bot@workspace:."
@@ -8124,7 +8134,7 @@ __metadata:
     translitro: ^0.2.3
     twitter: ^1.7.1
     twitter-autohook: ^1.7.2
-    twitter-lite: ^0.14.0
+    twitter-lite: ^1.1.0
     twitter-text: ^3.1.0
     twitter-tweet: ^1.2.0
     unzalgo: ^2.1.2
