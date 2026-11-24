@@ -143,7 +143,7 @@
     "@commitlint/config-conventional": "11.0.0",
     "@commitlint/prompt-cli": "11.0.0",
     "@saithodev/semantic-release-backmerge": "1.2.1",
-    "commitizen": "4.2.1",
+    "commitizen": "4.2.4",
     "cz-conventional-changelog": "3.3.0",
     "dotenv": "8.2.0",
     "husky": "6.0.0",
